@@ -1,10 +1,9 @@
 import { Person } from "../model/person-model";
 
 export class PersonValid {
-    validData(person:Person): boolean {   //recognizing that data is valid or no  / validation data
+    validData(person:Person): boolean {   //recognizing that data is valid or not  / validation data
         return  this.username(person.username) &&
-        this.name(parent.name) &&
-        this.family(person.family) &&
+        this.email(person.email) &&
         this.message(person.message)
     }
 
@@ -14,14 +13,8 @@ export class PersonValid {
         else return false
     }
 
-    private name(na:string) : boolean{
-        if(na.length >= 3 )
-            return true
-        else return false
-    }
-
-    private family(fa:string) : boolean{
-        if(fa.length >= 3 )
+    private email(em:string) : boolean{
+        if(em.length >= 3 )
             return true
         else return false
     }
@@ -31,6 +24,5 @@ export class PersonValid {
             return true
         else return false
     }
-
 
 }

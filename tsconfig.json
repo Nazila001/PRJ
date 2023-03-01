@@ -3,6 +3,7 @@
       "target": "ES6",
       "module": "system",
       "baseUrl": ".",
-      "outDir": "./outFilesJs"
+      "outDir": "./outFilesJs",
+      "declaration": true
   }
 }
