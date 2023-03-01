@@ -1,7 +1,7 @@
 @font-face {
     font-family: vazir;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 100;
     src: url("/asets/fonts/Vazir.woff2") format("woff2");
     src: url("/asets/fonts/Vazir.woff") format("woff"),
         url("/asets/fonts/Vazir.eot") format("eot"),
@@ -11,7 +11,7 @@
 @font-face {
     font-family: vazir;
     font-style: normal;
-    font-weight: 950;
+    font-weight: 750;
     src: url("/asets/fonts/Vazir-Bold.woff2") format("woff2");
     src: url("/asets/fonts/Vazir-Bold.woff") format("woff"),
         url("/asets/fonts/Vazir-Bold.eot") format("eot"),
