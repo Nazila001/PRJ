@@ -1,9 +1,38 @@
+@font-face {
+    font-family: vazir;
+    font-style: normal;
+    font-weight: 400;
+    src: url("/asets/fonts/Vazir.woff2") format("woff2");
+    src: url("/asets/fonts/Vazir.woff") format("woff"),
+        url("/asets/fonts/Vazir.eot") format("eot"),
+        url("/asets/fonts/Vazir.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: vazir;
+    font-style: normal;
+    font-weight: 950;
+    src: url("/asets/fonts/Vazir-Bold.woff2") format("woff2");
+    src: url("/asets/fonts/Vazir-Bold.woff") format("woff"),
+        url("/asets/fonts/Vazir-Bold.eot") format("eot"),
+        url("/asets/fonts/Vazir-Bold.ttf") format("ttf");
+}
+
+
+
+body{
+    font-family: vazir;
+    color:black;
+}
+
+color {
+    color: black;
+}
+
 .box{
     height: 100vh;
     background-color: rgb(244, 242, 244);
     padding: 100px;
-    /* background-image: url("/asets/images/1.jpg"); */
-
 }
 
 .table-box {
@@ -15,9 +44,7 @@ table tr>td, table, tr>th{
     text-align: center;
 }
 
-/* .body {
-    /* background-image: url("/asets/images/1.jpg"); 
-}*/
+
 
 .button_login {
     text-align: center;
@@ -27,9 +54,9 @@ table tr>td, table, tr>th{
 }
 
 a {
-    color: black;
     text-decoration:none;
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 
