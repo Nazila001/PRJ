@@ -1,14 +1,19 @@
 export class Post {
-    id : number;
+    id? : number;
     auther : string;
     message : string;
     date? : string | number;
 }
 
 export class Person {
-    id : number;
+    id? : number;
     username: string;
-    email : string; 
-    pass : string;
-    postN : number;   //related to the number of posts
+    email? : string; 
+    password : string;
+    postN? : number;   //related to the number of posts
+}
+
+enum postEmpty {
+    empty = 0,
+    full = 1
 }

@@ -1,0 +1,21 @@
+import { UserAuthentication } from '../valid/infoValid';
+
+
+// let elementProfile = document.getElementById("redirectProfile");
+// let elementPosts = document.getElementById("redirectPosts");
+
+let element = document.getElementById("redirect");
+    element.onclick = ()=>{
+        let userValidation  = new UserAuthentication(
+        {
+            username : 'a@b.com',
+            password : '12345',
+        }
+        );
+        if (userValidation.validUserNE())
+            window.location.href = '/index5.html';
+        else return alert("error")
+            // else return "Error"
+
+}
+

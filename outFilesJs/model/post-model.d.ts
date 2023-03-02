@@ -1,13 +1,13 @@
 export declare class Post {
-    id: number;
+    id?: number;
     auther: string;
     message: string;
     date?: string | number;
 }
 export declare class Person {
-    id: number;
+    id?: number;
     username: string;
-    email: string;
-    pass: string;
-    postN: number;
+    email?: string;
+    password: string;
+    postN?: number;
 }
