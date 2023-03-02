@@ -1,4 +1,4 @@
-import { Person } from "../model/person-model"
+import { Person } from "../model/post-model"
 
 export class UserAuthentication {
 
