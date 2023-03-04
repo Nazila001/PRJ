@@ -6,6 +6,7 @@ export interface IpostAction  {
     add(post: string): Post;  //adding a new post
     add(input): Post[];  //adding all posts
     getAll():Post[];
+    update();
     clearCompleted(): void;
     getById(postId : number) : Post //geting id and returning a post id
 }
