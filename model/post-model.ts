@@ -1,8 +1,14 @@
 export class Post {
     id? : number;
-    auther : string;
+    autherName : string;
     message : string;
+    state : PostState;
     date? : string | number;
+}
+
+export enum PostState {
+    Active = 0,
+    Complete = 1
 }
 
 export class Person {
@@ -11,9 +17,4 @@ export class Person {
     email? : string; 
     password : string;
     postN? : number;   //related to the number of posts
-}
-
-enum postEmpty {
-    empty = 0,
-    full = 1
 }

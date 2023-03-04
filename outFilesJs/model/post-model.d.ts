@@ -1,6 +1,6 @@
 export declare class Post {
     id?: number;
-    auther: string;
+    autherName: string;
     message: string;
     date?: string | number;
 }

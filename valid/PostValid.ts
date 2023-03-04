@@ -8,7 +8,7 @@ export class PostValidation {
 
 
     constructor(post:Post) {
-        this.auther = post.auther;
+        this.auther = post.autherName;
         this.message = post.message;
     }
 

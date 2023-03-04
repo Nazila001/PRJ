@@ -11,26 +11,13 @@
     <title>صفحه‌ شخصی </title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog-rtl/">
     <link href="/bootstrap/bootstrap-5.3.0-alpha1/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-WJUUqfoMmnfkBLne5uxXj+na/c7sesSJ32gI7GfCk4zO4GthUKhSEGyvQ839BC51" crossorigin="anonymous">
-    <meta name="theme-color" content="#712cf9">
     <link href="https://fonts.googleapis.com/css?family=Amiri:wght@400;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/asets/style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.22/system.js"></script>
+
   </head>
 
-
 <body>
-
-    <!-- <header class="blog-header lh-1 py-3">
-        <div class="nav-scroller py-1 mb-5 head">
-            <nav class="nav d-flex justify-content-between">
-                <ul class="nav">
-                    <li><a class="p-2 link-secondary" href="#">خانه</a></li>
-                    <li><a class="p-2 link-secondary" href="#">مشخصات</a></li>
-                    <li><a class="p-2 link-secondary" href="#">پست‌ها</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header> -->
-
 
 
     <header class="p-3 bg-dark text-white mb-5">
@@ -41,14 +28,13 @@
             </a>
             <ul class="nav col-6 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
                 <li><a class="p-2 link-secondary" href="#"id="mainpage">پست‌های من</a></li>
-                <li><a class="p-2 link-secondary" href="#" id="profile">پروفایل</a></li>
+                <li><a class="p-2 link-secondary" href="#" id="redirectProfilePage">پروفایل</a></li>
                 <li><a class="p-2 link-secondary" href="#" id="posts">پست‌ها</a></li>
                 <li><a class="p-2 link-secondary" href="#" id="exit">خروج</a></li>
             </ul>
           </div>
         </div>
       </header>
-
 
     <div class="container ulhead" style="font-weight: 950">
         <div class="row flex-nowrap justify-content-between align-items-center">
@@ -67,70 +53,60 @@
             </div>
         </div>
     </div>
-
     <main class="container">
-
-        <!-- <div class="row mb-2">
-            <div class="col-md-6">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                    <h3 class="mb-0">پست</h3>
-                    <div class="mb-1 text-muted">تاریخ</div>
-                        <p class="card-text mb-auto"></p>
-                        <a href="#" class="stretched-link">بیشتر</a>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                    </div>
-                </div>
-            </div> -->
-  
-
-            <div class="col">
-                <div class="card shadow-sm">
-                  <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: صورة مصغرة" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"> </text></svg> -->
-      
-                  <div class="card-body">
+        <div class="col">
+            <div id="main" class="card shadow-sm">
+                <div class="card-body">
                     <p class="card-text">
                         <div class="col-4 pt-1 color">
                             <div>
                                 <label  class="form-lable mb-3 mt-3"></label>
-                                <input type="text" class="form-coltrol mb-4" id="" placeholder="پیام خود را وارد کنید">
+                                <input type="text" class="form-coltrol mb-4" id="enterPost" placeholder="پیام خود را وارد کنید">
                                 <button onclick="" type="button" class="btn btn-success">ارسال</button>
                             </div>
                         </div>
                     </p>
-
-                    
                     <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
+                        <div class="btn-group">
                         
                         <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
                         <label class="btn btn-outline-danger" for="danger-outlined">👎</label>
 
                         <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
                         <label class="btn btn-outline-success" for="success-outlined">👍</label>
+                        </div>
 
-                        
-                      </div>
-
-                      
-                      <!-- <small class="text-muted">تاریخ</small> -->
-                      <button  class="btn py-0 px-1 btn-danger" data-bs-target="#" data-bs-toggle="modal">حذف</button>
+                        <!-- <small class="text-muted">تاریخ</small> -->
+                        <button  class="btn py-0 px-1 btn-danger" data-bs-target="#" data-bs-toggle="modal">حذف</button>
                     </div>
-                  </div>
                 </div>
             </div>
-
-
-
         </div>
 
         <div class="row">
             <div class="col-md-8">
-                <h3 class="pb-4 mb-5 mt-5 border-bottom">
+                <h3 class="pb-4 mb-5 mt-5 border-bottom" id="showAllPost">
                     پست‌های من
                 </h3>
-            <div class="modal fade" id="personModal" tabindex="-1" aria-hidden="true">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        System.defaultJSExtensions = true;
+        System.import('PostApp').then(function(modules){
+        new module.PostAll(document,['Pick up','Post 1','Save message'])
+        });
+    </script>
+
+    </body>
+</html>
+
+
+
+
+
+            <!-- <div class="modal fade" id="personModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header row g-0">
@@ -150,19 +126,7 @@
                                     </div>
                                 </div>
                             </form>
-
                         </div>
-
-                    </div>
-
+                    </div>  
                 </div>
-
-            </div>
-
-
-        </div>
-
-    </main>
-
-    </body>
-</html>
+            </div> -->

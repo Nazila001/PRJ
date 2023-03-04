@@ -1,9 +1,12 @@
-import { Post } from "model/post-model";
+import { Post } from "../model/post-model";
+
+
 export interface IpostAction {
     add(post: Post): Post;
     add(post: string): Post;
-    addAll(): Post[];
+    add(input): Post[];
     update(): Post[];
-    deletePost(id: number): void;
+    clearCompleted(): void;
     getById(postId: number): Post;
+    toggle(postId:number):void;
 }
