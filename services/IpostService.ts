@@ -3,7 +3,7 @@ import { Post } from "../model/post-model";
 export interface IpostAction  {
     
     // add(post: Post): Post;   //saving post
-    addPost(post: string): Post;  //adding a new post
+    addPost(): void;  //adding a new post
     addFT(input): Post[];  //adding all posts
     getAll():Post[];
     update();

@@ -33,7 +33,9 @@ export class PostS implements IpostAction {
     // add(post: Post): Post;
 
 
-    addPost(post: string): Post;
+    addPost() : Post{
+
+    }
 
 
     addFT(input): Post[] {
