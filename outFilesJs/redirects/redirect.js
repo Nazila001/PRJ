@@ -25,7 +25,7 @@ System.register(["../valid/infoValid"], function (exports_1, context_1) {
                                 return alert("error");
                         };
                     }
-                    let elementPosts = document.getElementById("redirectPosts");
+                    let elementPosts = document.getElementById("redirectProfilePage");
                     if (elementPosts) {
                         elementPosts.onclick = () => {
                             window.location.href = 'http://127.0.0.1:5500/view/posts.html';
@@ -40,14 +40,6 @@ System.register(["../valid/infoValid"], function (exports_1, context_1) {
                 }
             };
             exports_1("Login", Login);
-            // let elementPosts = document.getElementById("redirect");
-            // elementPosts.onclick = ()=>{
-            //     window.location.href = '/view/posts.html';
-            // }
-            // let elementProfile = document.getElementById("redirect");
-            // elementProfile.onclick = ()=>{
-            //     window.location.href = '/view/profiles.html';
-            // }
         }
     };
 });

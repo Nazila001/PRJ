@@ -7,7 +7,7 @@ System.register([], function (exports_1, context_1) {
         execute: function () {
             PostValidation = class PostValidation {
                 constructor(post) {
-                    this.auther = post.auther;
+                    this.auther = post.autherName;
                     this.message = post.message;
                 }
                 autherValid(auther) {

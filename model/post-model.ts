@@ -1,8 +1,10 @@
+import { NewType } from "./NewType";
+
 export class Post {
     id? : number;
     autherName : string;
     message : string;
-    state : PostState;
+    state : NewType;
     date? : string | number;
 }
 

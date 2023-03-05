@@ -1,6 +1,6 @@
 System.register([], function (exports_1, context_1) {
     "use strict";
-    var Post, Person, postEmpty;
+    var Post, PostState, Person;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [],
@@ -8,13 +8,14 @@ System.register([], function (exports_1, context_1) {
             Post = class Post {
             };
             exports_1("Post", Post);
+            (function (PostState) {
+                PostState[PostState["Active"] = 0] = "Active";
+                PostState[PostState["Complete"] = 1] = "Complete";
+            })(PostState || (PostState = {}));
+            exports_1("PostState", PostState);
             Person = class Person {
             };
             exports_1("Person", Person);
-            (function (postEmpty) {
-                postEmpty[postEmpty["empty"] = 0] = "empty";
-                postEmpty[postEmpty["full"] = 1] = "full";
-            })(postEmpty || (postEmpty = {}));
         }
     };
 });

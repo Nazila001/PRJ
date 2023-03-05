@@ -1,34 +1,25 @@
-System.register([], function (exports_1, context_1) {
-    "use strict";
-    var PostManage;
-    var __moduleName = context_1 && context_1.id;
-    return {
-        setters: [],
-        execute: function () {
-            PostManage = class PostManage {
-                constructor() {
-                    // lsv : Post[] = new Array<Post>();
-                    this.lsv = [{ id: 1, auther: "Max", message: "hello world" }];
-                }
-                add(post) {
-                    throw new Error("Method not implemented.");
-                }
-                addAll() {
-                    throw new Error("Method not implemented.");
-                }
-                update() {
-                    throw new Error("Method not implemented.");
-                }
-                deletePost(id) {
-                    let index = this.lsv.findIndex(item => item.id);
-                    this.lsv.splice(index, 1);
-                    this.update();
-                }
-                getById(postId) {
-                    throw new Error("Method not implemented.");
-                }
-            };
-            exports_1("PostManage", PostManage);
-        }
-    };
-});
+// import { Post } from "model/post-model";
+// import { IpostAction } from "services/IpostService";
+// export class PostManage implements IpostAction {
+//     // lsv : Post[] = new Array<Post>();
+//     lsv :  Post[] = [{id:1, auther:"Max", message: "hello world"}]
+//     add(post: Post): Post;
+//     add(post: string): Post;
+//     add(post: unknown): import("../model/post-model").Post {
+//         throw new Error("Method not implemented.");
+//     }
+//     addAll(): Post[] {
+//         throw new Error("Method not implemented.");
+//     }
+//     update(): Post[] {
+//         throw new Error("Method not implemented.");
+//     }
+//     deletePost(id:number): void {
+//         let index = this.lsv.findIndex (item => item.id);
+//         this.lsv.splice(index,1);
+//         this.update();
+//     }
+//     getById(postId: number): Post {
+//         throw new Error("Method not implemented.");
+//     }
+// }
