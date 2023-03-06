@@ -43,8 +43,8 @@
                     <thead>ارسال پیام</thead>
                     <div>
                         <label  class="form-lable mb-3 mt-3"></label>
-                        <input type="text" class="form-coltrol mb-5 " id="" placeholder="پیام">
-                        <button onclick="" type="button" class="btn btn-secondary">ارسال</button>
+                        <input type="text" class="form-coltrol mb-5 " id="postMessage" placeholder="پیام">
+                        <button id="addPost" type="button" class="btn btn-secondary">ارسال</button>
                     </div>
                 </table>               
             </div>
@@ -62,7 +62,7 @@
                             <div>
                                 <label  class="form-lable mb-3 mt-3"></label>
                                 <input type="text" class="form-coltrol mb-4" id="enterPost" placeholder="پیام خود را وارد کنید">
-                                <button onclick="" type="button" class="btn btn-success">ارسال</button>
+                                <button id="addPost" type="button" class="btn btn-success">ارسال</button>
                             </div>
                         </div>
                     </p>
@@ -86,14 +86,17 @@
                 <h3 class="pb-4 mb-5 mt-5 border-bottom" id="showAllPost">
                     پست‌های من
                 </h3>
+                <div id="allPosts">
+
+                </div>
             </div>
         </div>
     </main>
 
     <script>
         System.defaultJSExtensions = true;
-        System.import('PostApp').then(function(modules){
-        new module.PostAll(document,['Pick up','Post 1','Save message'])
+        System.import('/outFilesJs/controller/postApp').then(function(modules){
+           new modules.PostApp()
         });
     </script>
 
@@ -101,7 +104,7 @@
 </html>
 
 
-
+    
 
 
             <!-- <div class="modal fade" id="personModal" tabindex="-1" aria-hidden="true">

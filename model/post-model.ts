@@ -1,10 +1,10 @@
-import { NewType } from "./NewType";
+// import { NewType } from "./NewType";
 
 export class Post {
     id? : number;
     autherName : string;
     message : string;
-    state : NewType;
+    state : PostState;
     date? : string | number;
 }
 

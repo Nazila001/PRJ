@@ -1,4 +1,4 @@
-import { Post,PostState } from "model/post-model";
+import { Post,PostState } from "../model/post-model";
 import { IpostAction } from "services/IpostService";
 
 let lastId = 0;
@@ -33,7 +33,7 @@ export class PostS implements IpostAction {
     // add(post: Post): Post;
 
 
-    addPost() : Post{
+    addPost() : void{
 
     }
 

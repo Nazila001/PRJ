@@ -9,13 +9,19 @@ export class PostApp {
     private postService: PostS;
     // private postList: PostListComponents;
 
-    constructor(po,posts){
+    constructor() {
+        document.getElementById('addPost').addEventListener("click",()=>{
+            this.addPost()
+        });
+        document.getElementById()
+        this.renderPosts()
         this.postService = new PostS()
         // this.postService = new PostS(posts);
     }
 
 
-    addPost(postAutherName){
+    addPost(){
+        (document.getElementById('postMessage') as any).value;
         // this.postService.add(postAutherName);
         this.renderPosts();
     }
@@ -26,7 +32,18 @@ export class PostApp {
     }
 
     renderPosts(){
-        let posts = this.postService.getAll() ;
+        const posts =['asd','asd2','asd3'];
+        const postElement = document.getElementById('allPosts');
+        // let postsAll = this.postService.getAll() ;
+        posts.forEach(post=>{
+            const divTag = document.createElement('div');
+            // divTag.innerText = post.autherName;
+            
+            const messageTag = document.createElement('p');
+            messageTag.innerText = post;
+            divTag.append(messageTag);
+            postElement.append(divTag)
+        })
         // this.postList.render(posts);
     }
 

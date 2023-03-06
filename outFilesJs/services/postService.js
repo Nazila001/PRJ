@@ -1,4 +1,4 @@
-System.register(["model/post-model"], function (exports_1, context_1) {
+System.register(["../model/post-model"], function (exports_1, context_1) {
     "use strict";
     var post_model_1, lastId, PostS;
     var __moduleName = context_1 && context_1.id;
@@ -21,9 +21,6 @@ System.register(["model/post-model"], function (exports_1, context_1) {
                 constructor(lastId = 0, posts = []) {
                     this.lastId = lastId;
                     this.posts = posts;
-                    // if (posts){
-                    //     posts.forEach(post => this.add(post));
-                    // }
                 }
                 find(post) {
                     var filtered = this.posts.filter(x => x.id == post);
@@ -33,24 +30,27 @@ System.register(["model/post-model"], function (exports_1, context_1) {
                     return null;
                 }
                 // add(post: Post): Post;
-                // add(post: string): Post;
-                // add(input): Post[] {
-                //     let  post : Post = {
-                //         id : generatePostId(),
-                //         autherName : null,
-                //         message : null,
-                //         state: PostState.Active,
-                //     };
-                //     if (typeof input === 'string'){
-                //         post.autherName = input;
-                //     }else if(typeof input.auther === 'string'){
-                //         post.message = input.message;
-                //     }else{
-                //         throw 'نام معتبر نیست'
-                //     }
-                //     this.posts.push(post);
-                //     return this.posts;
-                // }
+                addPost() {
+                }
+                addFT(input) {
+                    let post = {
+                        id: generatePostId(),
+                        autherName: null,
+                        message: null,
+                        state: post_model_1.PostState.Active,
+                    };
+                    if (typeof input === 'string') {
+                        post.autherName = input;
+                    }
+                    else if (typeof input.auther === 'string') {
+                        post.message = input.message;
+                    }
+                    else {
+                        throw 'نام معتبر نیست';
+                    }
+                    this.posts.push(post);
+                    return this.posts;
+                }
                 clearCompleted() {
                     this.posts = this.posts.filter(x => x.state == post_model_1.PostState.Active);
                 }
