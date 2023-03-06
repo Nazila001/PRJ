@@ -34,7 +34,7 @@ export class PostS implements IpostAction {
 
 
     addPost() : void{
-
+        
     }
 
 

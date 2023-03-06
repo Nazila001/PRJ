@@ -15,13 +15,19 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                     document.getElementById('addPost').addEventListener("click", () => {
                         this.addPost();
                     });
-                    document.getElementById();
+                    document.getElementById('enterPost').addEventListener("click", () => {
+                        this.addPost();
+                    });
                     this.renderPosts();
                     this.postService = new postService_1.PostS();
                     // this.postService = new PostS(posts);
                 }
                 addPost() {
-                    document.getElementById('postMessage').value;
+                    // let value1 = (document.querySelector("#enterPost")as any).value;
+                    // document.querySelector("#value1").innerHTML = value1;
+                    const post = document.getElementById('innerPost').value;
+                    document.getElementById("showEnterPost").innerHTML = post;
+                    this.postService.addPost();
                     // this.postService.add(postAutherName);
                     this.renderPosts();
                 }
@@ -30,7 +36,7 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                     this.renderPosts();
                 }
                 renderPosts() {
-                    const posts = ['asd', 'asd2', 'asd3'];
+                    const posts = ['نام نویسنده:', 'متن پیام:'];
                     const postElement = document.getElementById('allPosts');
                     // let postsAll = this.postService.getAll() ;
                     posts.forEach(post => {

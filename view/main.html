@@ -56,27 +56,31 @@
     <main class="container">
         <div class="col">
             <div id="main" class="card shadow-sm">
+
                 <div class="card-body" id="tocken">
                     <p class="card-text">
                         <div class="col-4 pt-1 color">
                             <div>
                                 <label  class="form-lable mb-3 mt-3"></label>
-                                <input type="text" class="form-coltrol mb-4" id="enterPost" placeholder="پیام خود را وارد کنید">
-                                <button id="addPost" type="button" class="btn btn-success">ارسال</button>
+                                <input type="text" class="form-coltrol mb-4" id="innerPost"  placeholder="پیام خود را وارد کنید">
+                                <button id="enterPost" type="button" class="btn btn-success">ارسال</button>
                             </div>
                         </div>
                     </p>
+
                     <div class="d-flex justify-content-between align-items-center">
-                        <!-- <div class="btn-group"> 
+                        <p id="showEnterPost"></p>
+                        <div class="btn-group"> 
                             <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
                             <label class="btn btn-outline-danger" for="danger-outlined">👎</label>
 
                             <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
                             <label class="btn btn-outline-success" for="success-outlined">👍</label>
-                        </div> -->
+                        </div>
                         <!-- <small class="text-muted">تاریخ</small> -->
                         <button onclick="deletePost()" class="btn py-0 px-1 btn-danger" data-bs-target="#" >حذف</button>
                     </div>
+                    
                 </div>
             </div>
         </div>
