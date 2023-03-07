@@ -10,6 +10,7 @@ export class PostApp {
     // private postList: PostListComponents;
 
     constructor() {
+        this.postService = new PostS()
         document.getElementById('addPost').addEventListener("click",()=>{
             this.addFT()
         });
@@ -17,7 +18,6 @@ export class PostApp {
             this.addPost()
         });
         this.renderPosts()
-        this.postService = new PostS()
         // this.postService = new PostS(posts);
     }
 
@@ -25,7 +25,7 @@ export class PostApp {
     addFT() {
         const post = (document.getElementById('postMessage') as any).value;
         document.getElementById("showPostFirsttime").innerHTML = post;
-        this.postService.addPost()
+        this.postService.addFT(post)
         this.renderPosts();
     }
 
@@ -34,7 +34,6 @@ export class PostApp {
         const post = (document.getElementById('innerPost') as any).value;
         document.getElementById("showEnterPost").innerHTML = post;
         this.postService.addPost()
-        this.renderPosts();
     }
 
     clearCompleted(){
@@ -44,20 +43,34 @@ export class PostApp {
 
     renderPosts(){
 
-        const posts =['نام نویسنده:','متن پیام:'];
+        // const posts =['نام نویسنده:','متن پیام:'];
+        // const posts = ['متن پیام:'] 
         const postElement = document.getElementById('allPosts');
+        const posts= this.postService.getAll()
         posts.forEach(post=>{
+
             const divTag = document.createElement('div');
-            
-            const messageTag = document.createElement('p');
-            messageTag.innerText = post;
+            const messageTag = document.createElement('p'); 
+            const userTag = document.createElement('p'); 
+
+
+
+            // userTag.innerText = post.message;
+            userTag.innerText = localStorage.getItem("redirect");
+            divTag.appendChild(messageTag);
+
+            // messageTag.innerText = post.message;
+            messageTag.innerText = localStorage.getItem("redirect");
+            divTag.appendChild(messageTag);
+
+            postElement.append(divTag);
             divTag.append(messageTag);
-            postElement.append(divTag)
+            divTag.append(userTag);
+
+            
+
+            
         })
     }
-
-
-    // intialize(post:Post[]) {  //It should be writed. this function will handel html main page -  It is related to ./conrtoller/postListComponents.ts which should completed
-        
-    // }   
 }
+

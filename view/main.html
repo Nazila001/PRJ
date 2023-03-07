@@ -79,6 +79,7 @@
                         </div>
                         <!-- <small class="text-muted">تاریخ</small> -->
                         <button onclick="deletePost()" class="btn py-0 px-1 btn-danger" data-bs-target="#" >حذف</button>
+                        
                     </div>
 
                 </div>
@@ -90,7 +91,7 @@
                 <h3 class="pb-4 mb-5 mt-5 border-bottom" id="showAllPost">
                     پست‌های من
                 </h3>
-                <!-- <div id="allPosts"> -->
+                <div id="allPosts">
                     <p id="showPostFirsttime"></p>
                 </div>
             </div>
@@ -104,6 +105,10 @@
         });
     </script>
 
+
+    <script>
+        let userData = localStorage.getItem("redirect");
+    </script>
     </body>
 </html>
 

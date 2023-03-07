@@ -1,5 +1,3 @@
-// import { NewType } from "./NewType";
-
 export class Post {
     id? : number;
     autherName : string;

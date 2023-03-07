@@ -34,19 +34,17 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                 addFT(input) {
                     let post = {
                         id: generatePostId(),
-                        autherName: null,
-                        message: null,
+                        autherName: localStorage.getItem("redirect"),
+                        message: input,
                         state: post_model_1.PostState.Active,
                     };
-                    if (typeof input === 'string') {
-                        post.autherName = input;
-                    }
-                    else if (typeof input.auther === 'string') {
-                        post.message = input.message;
-                    }
-                    else {
-                        throw 'نام معتبر نیست';
-                    }
+                    // if (typeof input === 'string'){
+                    //     post.autherName = input;
+                    // }else if(typeof input.auther === 'string'){
+                    //     post.message = input.message;
+                    // }else{
+                    //     throw 'نام معتبر نیست'
+                    // }
                     this.posts.push(post);
                     return this.posts;
                 }

@@ -39,18 +39,18 @@ export class PostS implements IpostAction {
 
         let  post : Post = {
             id : generatePostId(),
-            autherName : null,
-            message : null,
+            autherName : localStorage.getItem("redirect"),
+            message : input,
             state: PostState.Active,
         };
 
-        if (typeof input === 'string'){
-            post.autherName = input;
-        }else if(typeof input.auther === 'string'){
-            post.message = input.message;
-        }else{
-            throw 'نام معتبر نیست'
-        }
+        // if (typeof input === 'string'){
+        //     post.autherName = input;
+        // }else if(typeof input.auther === 'string'){
+        //     post.message = input.message;
+        // }else{
+        //     throw 'نام معتبر نیست'
+        // }
         this.posts.push(post);
         return this.posts;
     }

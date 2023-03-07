@@ -1,11 +1,10 @@
-// import { NewType } from "./NewType";
 System.register([], function (exports_1, context_1) {
     "use strict";
     var Post, PostState, Person;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [],
-        execute: function () {// import { NewType } from "./NewType";
+        execute: function () {
             Post = class Post {
             };
             exports_1("Post", Post);

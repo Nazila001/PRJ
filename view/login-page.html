@@ -23,14 +23,17 @@
 
 <body class="text-center">
     <main class="form-signin w-100 m-auto">
-        <form>
+            <form action="javascript:void(0)">
             <img class="mb-4" src="/asets/images/login.png" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">ورود به ناحیه کاربری</h1>
-
+            
             <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <!-- <input type="text" class="form-coltrol" id="name" placeholder="نام"> -->
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">نام کاربری</label>
+            </div>
+            <!-- <div class="form-floating">
+                <input type="name" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">نام کاربری</label> -->
             </div>
             <div class="form-floating">
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
@@ -41,7 +44,8 @@
                 <input type="checkbox" value="remember-me"> مرا به خاطر بسپار
             </label>
             </div>
-            <button id="redirect"  class="w-100 btn btn-lg btn-primary" >ورود</button>
+            <button id="redirect" class="w-100 btn btn-lg btn-primary" >ورود</button>
+            <!-- <button id="username" type="button" class="w-100 btn btn-lg btn-primary" >ورود</button> -->
         </form>
     </main>
 </body>
@@ -50,6 +54,19 @@
       System.import("/outFilesJs/redirects/redirect").then(function (module) {
           new module.Login();
       });
+</script>
+
+<script>
+
+    let text = document.querySelector("input");
+    let h2 = document.querySelector("h2");
+
+
+    document.querySelector("#redirect").addEventListener("click",function(){
+      localStorage.setItem("redirect",text.value);
+      h2.innerText = localStorage.getItem("redirect"); 
+    });
+
 </script>
 <!-- <script src="/outFilesJs/redirects/redirect.js"></script> -->
 </html>
