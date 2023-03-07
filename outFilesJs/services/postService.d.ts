@@ -9,6 +9,5 @@ export declare class PostS implements IpostAction {
     addFT(input: any): Post[];
     clearCompleted(): void;
     getAll(): Post[];
-    update(): void;
     getById(postId: number): Post;
 }

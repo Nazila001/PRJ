@@ -11,7 +11,7 @@ export class PostApp {
 
     constructor() {
         document.getElementById('addPost').addEventListener("click",()=>{
-            this.addPost()
+            this.addFT()
         });
         document.getElementById('enterPost').addEventListener("click",()=>{
             this.addPost()
@@ -22,14 +22,18 @@ export class PostApp {
     }
 
 
+    addFT() {
+        const post = (document.getElementById('postMessage') as any).value;
+        document.getElementById("showPostFirsttime").innerHTML = post;
+        this.postService.addPost()
+        this.renderPosts();
+    }
+
     addPost(){
-        // let value1 = (document.querySelector("#enterPost")as any).value;
-        // document.querySelector("#value1").innerHTML = value1;
         
         const post = (document.getElementById('innerPost') as any).value;
         document.getElementById("showEnterPost").innerHTML = post;
         this.postService.addPost()
-        // this.postService.add(postAutherName);
         this.renderPosts();
     }
 
@@ -42,17 +46,14 @@ export class PostApp {
 
         const posts =['نام نویسنده:','متن پیام:'];
         const postElement = document.getElementById('allPosts');
-        // let postsAll = this.postService.getAll() ;
         posts.forEach(post=>{
             const divTag = document.createElement('div');
-            // divTag.innerText = post.autherName;
             
             const messageTag = document.createElement('p');
             messageTag.innerText = post;
             divTag.append(messageTag);
             postElement.append(divTag)
         })
-        // this.postList.render(posts);
     }
 
 

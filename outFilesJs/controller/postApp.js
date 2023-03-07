@@ -13,7 +13,7 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                 // private postList: PostListComponents;
                 constructor() {
                     document.getElementById('addPost').addEventListener("click", () => {
-                        this.addPost();
+                        this.addFT();
                     });
                     document.getElementById('enterPost').addEventListener("click", () => {
                         this.addPost();
@@ -22,13 +22,16 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                     this.postService = new postService_1.PostS();
                     // this.postService = new PostS(posts);
                 }
+                addFT() {
+                    const post = document.getElementById('postMessage').value;
+                    document.getElementById("showPostFirsttime").innerHTML = post;
+                    this.postService.addPost();
+                    this.renderPosts();
+                }
                 addPost() {
-                    // let value1 = (document.querySelector("#enterPost")as any).value;
-                    // document.querySelector("#value1").innerHTML = value1;
                     const post = document.getElementById('innerPost').value;
                     document.getElementById("showEnterPost").innerHTML = post;
                     this.postService.addPost();
-                    // this.postService.add(postAutherName);
                     this.renderPosts();
                 }
                 clearCompleted() {
@@ -38,16 +41,13 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                 renderPosts() {
                     const posts = ['نام نویسنده:', 'متن پیام:'];
                     const postElement = document.getElementById('allPosts');
-                    // let postsAll = this.postService.getAll() ;
                     posts.forEach(post => {
                         const divTag = document.createElement('div');
-                        // divTag.innerText = post.autherName;
                         const messageTag = document.createElement('p');
                         messageTag.innerText = post;
                         divTag.append(messageTag);
                         postElement.append(divTag);
                     });
-                    // this.postList.render(posts);
                 }
             };
             exports_1("PostApp", PostApp);

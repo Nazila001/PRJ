@@ -1,17 +1,10 @@
-System.register(["services/postService"], function (exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
-    var postService_1, update, deletePost;
+    var deletePost;
     var __moduleName = context_1 && context_1.id;
     return {
-        setters: [
-            function (postService_1_1) {
-                postService_1 = postService_1_1;
-            }
-        ],
+        setters: [],
         execute: function () {
-            update = () => {
-                new postService_1.PostS().update();
-            };
             deletePost = () => {
             };
         }

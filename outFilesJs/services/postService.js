@@ -29,7 +29,6 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                     }
                     return null;
                 }
-                // add(post: Post): Post;
                 addPost() {
                 }
                 addFT(input) {
@@ -57,27 +56,26 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                 getAll() {
                     return clone(this.posts);
                 }
-                update() {
-                    if (this.posts.length > 0) {
-                        let tr = "";
-                        this.posts.forEach(item => {
-                            tr += "<div class='card-body'>";
-                            tr += "<p class=" + "'card-text'>";
-                            tr += "<div class=" + "'col-4 pt-1 color'><div>";
-                            tr += "<label  class=" + "'form-lable mb-3 mt-3'></label>";
-                            tr += "<input type=" + item + "class='form-coltrol mb-4' id=" + "'enterPost' placeholder='پیام خود را وارد کنید'>";
-                            tr += "<button onclick=" + "type='button' class='btn btn-success'> ارسال</button>";
-                            tr += "</div>";
-                            tr += "</p> ";
-                            tr += " <div class='d-flex justify-content-between align-items-center'>";
-                            tr += "<button onclick=" + "update(" + item.id + ")" + "class='btn py-0 px-1 btn-danger' data-bs-target='#' data-bs-toggle='modal'>حذف</button>";
-                            tr += "</div></div>";
-                        });
-                    }
-                    else {
-                        document.getElementById("tocken").innerHTML = "";
-                    }
-                }
+                // update() {
+                //     if (this.posts.length>0){
+                //         let tr : string = "" ;
+                //         this.posts.forEach(item => {
+                //             tr += "<div class='card-body'>";
+                //             tr += "<p class=" + "'card-text'>";
+                //             tr += "<div class="+"'col-4 pt-1 color'><div>";
+                //             tr += "<label  class="+"'form-lable mb-3 mt-3'></label>";
+                //             tr += "<input type="+ item +"class='form-coltrol mb-4' id="+"'enterPost' placeholder='پیام خود را وارد کنید'>";
+                //             tr += "<button onclick=" + "type='button' class='btn btn-success'> ارسال</button>";
+                //             tr += "</div>";
+                //             tr += "</p> ";
+                //             tr +=  " <div class='d-flex justify-content-between align-items-center'>";
+                //             tr += "<button onclick="+"update("+item.id+")"+"class='btn py-0 px-1 btn-danger' data-bs-target='#' data-bs-toggle='modal'>حذف</button>";
+                //             tr += "</div></div>";
+                //         })
+                //     }else {  
+                //     document.getElementById("tocken").innerHTML = "";
+                //     }
+                // }
                 getById(postId) {
                     var post = this.find(postId);
                     return clone(post);
