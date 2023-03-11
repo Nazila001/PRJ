@@ -46,13 +46,15 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                     //     throw 'نام معتبر نیست'
                     // }
                     this.posts.push(post);
+                    localStorage.setItem('posts', JSON.stringify(this.posts));
                     return this.posts;
                 }
                 clearCompleted() {
                     this.posts = this.posts.filter(x => x.state == post_model_1.PostState.Active);
                 }
                 getAll() {
-                    return clone(this.posts);
+                    this.posts = localStorage.getItem('posts') ? JSON.parse(localStorage.getItem('posts')) : [];
+                    return this.posts;
                 }
                 // update() {
                 //     if (this.posts.length>0){

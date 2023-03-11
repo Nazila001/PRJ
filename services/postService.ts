@@ -52,6 +52,7 @@ export class PostS implements IpostAction {
         //     throw 'نام معتبر نیست'
         // }
         this.posts.push(post);
+        localStorage.setItem('posts',JSON.stringify(this.posts));
         return this.posts;
     }
 
@@ -63,7 +64,8 @@ export class PostS implements IpostAction {
 
 
     getAll(): Post[] {
-        return clone(this.posts);
+        this.posts = localStorage.getItem('posts') ? JSON.parse(localStorage.getItem('posts')) :[];
+        return this.posts;
 
     }
 
