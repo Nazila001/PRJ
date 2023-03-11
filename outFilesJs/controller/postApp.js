@@ -54,7 +54,7 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                         divTag.appendChild(messageTag);
                         postElement.append(divTag);
                         divTag.append(messageTag);
-                        divTag.append(userTag);
+                        // divTag.append(userTag);
                     });
                 }
             };

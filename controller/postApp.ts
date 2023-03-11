@@ -53,8 +53,6 @@ export class PostApp {
             const messageTag = document.createElement('p'); 
             const userTag = document.createElement('p'); 
 
-
-
             // userTag.innerText = post.message;
             userTag.innerText = localStorage.getItem("redirect");
             divTag.appendChild(messageTag);
@@ -65,11 +63,8 @@ export class PostApp {
 
             postElement.append(divTag);
             divTag.append(messageTag);
-            divTag.append(userTag);
+            // divTag.append(userTag);
 
-            
-
-            
         })
     }
 }
