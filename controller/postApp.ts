@@ -7,7 +7,6 @@ import { PostS } from '../services/postService';
 
 export class PostApp {
     private postService: PostS;
-    // private postList: PostListComponents;
     public listPosts = [];  //a list to add posts of users
 
     constructor() {
@@ -15,78 +14,89 @@ export class PostApp {
         document.getElementById('addPost').addEventListener("click",()=>{
             this.addFT()
         });
-        // document.getElementById('enterPost').addEventListener("click",()=>{
-        //     this.addPost()
-        // });
         this.renderPosts()
-        // this.postService = new PostS(posts);
 
     }
 
-    
-
 
     addFT() {
-        const post = (document.getElementById('postMessage') as any).value;
-        // document.getElementById("showPostFirsttime").innerHTML = post;
-        // localStorage.setItem('postsOfUsers', JSON.stringify(post));
+        const post = (document.getElementById('postMessage') as any).value; 
         this.postService.addFT(post);
         this.renderPosts();
     }
 
-    // addPost(){
-        
-    //     const post = (document.getElementById('innerPost') as any).value;
-    //     document.getElementById("showEnterPost").innerHTML = post;
-    //     localStorage.setItem('postsOfUsers', JSON.stringify(post));
-    //     this.postService.addPost();
-    //     this.renderPosts();
-    // }
 
     clearCompleted(){
-        this.postService.clearCompleted();
+        const post = (document.getElementById('postId') as any).id; 
+        this.postService.clearCompleted(post.id);
         this.renderPosts();
     }
 
     renderPosts(){
-
-        // const posts =['نام نویسنده:','متن پیام:'];
-        // const posts = ['متن پیام:'] 
-        const postElement = document.getElementById('allPosts');
-        // const posts = JSON.parse(localStorage.getItem('postsOfUsers'));
+ 
+        const postElement = document.getElementById('main-items');
         const posts= this.postService.getAll();
-
-        if(document.getElementById('items')) {
-            postElement.removeChild(document.getElementById('items'));
+        const main = document.getElementById('items')
+        if(main) {
+            postElement.removeChild(main);
         }
 
         const postitems = document.createElement('div');
         postitems.setAttribute('id','items');
         
         posts.forEach(post=>{
+
+
+            const cardMain = document.createElement('div'); //<div class="card shadow-sm">
+            cardMain.className = 'card shadow-sm';
             
-            const divTag = document.createElement('div');
-            // divTag.className='items';
-            const messageTag = document.createElement('p'); 
-            const userTag = document.createElement('p'); 
+            const cardBody = document.createElement('div');  //<div class="card-body" id="tocken">
+            cardBody.className = 'card-body';
+            cardMain.appendChild(cardBody);
 
-            // userTag.innerText = post.message;
-            userTag.innerText = localStorage.getItem('redirect');
-            userTag.className= 'users';
-            divTag.appendChild(userTag);
 
-            // messageTag.innerText = post.message;
-            messageTag.innerText = post.message  //putting this comment : post.message
-            messageTag.className= 'messages';
+            const cardText = document.createElement('p');  //<p class="card-text" id="p1">
+            cardText.className = 'card-text';
+            cardBody.appendChild(cardText);
+
+
+            const cardBody1 = document.createElement('div');  // <div id="allPosts">
+            cardBody1.className = 'card-body1';
+            cardBody1.innerText = localStorage.getItem('redirect');
+            cardText.appendChild(cardBody1);
+
+
+            const messageTag = document.createElement('p');  //<p id="showPostFirsttime">
+            messageTag.className = 'card-text1';
+            messageTag.innerText = post.message; 
+            cardBody1.appendChild(messageTag);
+
             
-            divTag.appendChild(messageTag);
+            const cardBody2 = document.createElement('div');  // <div class='small-font text-center top-20'>
+            cardBody2.className = 'small-font text-center top-20';
+            messageTag.appendChild(cardBody2);
 
-            postitems.append(divTag);
-            divTag.append(messageTag);
-            // divTag.append(userTag);
+            // const icon = document.createElement('button'); // <ion-icon name="heart">
+            // messageTag.appendChild(icon);
+
+            const cardText1 = document.createElement('div');  //<div class='red-bg'>
+            cardText1.className = 'card-body';
+            messageTag.appendChild(cardText1);
+
+            
+            const btn = document.createElement('button'); //<button onclick="deletePost()" class="btn py-0 px-1 btn-danger"
+            btn.className = 'btn py-0 px-1 btn-danger';
+            // btn.onclick
+            btn.innerHTML = "حذف";
+            messageTag.appendChild(btn);
+
+
+            postitems.append(cardMain);
+            cardMain.append(messageTag);
 
         });
+        
         postElement.append(postitems);
+
     }
 }
-
