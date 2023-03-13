@@ -49,7 +49,7 @@ export class PostS implements IpostAction {
 
     clearCompleted(postId : number): void {
         const index = this.posts.findIndex(value=>value.id == postId);
-        if(index>=1) {
+        if(index>=0) {
             // this.posts = this.posts.splice(index,1);
             let postDeleted = this.posts.splice(index,1);
             this.posts = this.posts.filter(value => value.id != index);
