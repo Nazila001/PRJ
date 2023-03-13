@@ -41,7 +41,14 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                     return this.posts;
                 }
                 clearCompleted(postId) {
-                    this.posts = this.posts.filter(x => x.state == post_model_1.PostState.Active);
+                    const index = this.posts.findIndex(value => value.id == postId);
+                    if (index >= 1) {
+                        // this.posts = this.posts.splice(index,1);
+                        let postDeleted = this.posts.splice(index, 1);
+                        this.posts = this.posts.filter(value => value.id != index);
+                        // this.posts.length()
+                        localStorage.setItem('posts', JSON.stringify(this.posts));
+                    }
                 }
                 getAll() {
                     this.posts = localStorage.getItem('posts') ? JSON.parse(localStorage.getItem('posts')) : [];

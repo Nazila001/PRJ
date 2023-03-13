@@ -23,9 +23,8 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                     this.postService.addFT(post);
                     this.renderPosts();
                 }
-                clearCompleted() {
-                    const post = document.getElementById('postId').id;
-                    this.postService.clearCompleted(post.id);
+                clearCompleted(postId) {
+                    this.postService.clearCompleted(postId);
                     this.renderPosts();
                 }
                 renderPosts() {
@@ -64,7 +63,9 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                         messageTag.appendChild(cardText1);
                         const btn = document.createElement('button'); //<button onclick="deletePost()" class="btn py-0 px-1 btn-danger"
                         btn.className = 'btn py-0 px-1 btn-danger';
-                        // btn.onclick
+                        btn.addEventListener("click", () => {
+                            this.clearCompleted(post.id);
+                        });
                         btn.innerHTML = "حذف";
                         messageTag.appendChild(btn);
                         postitems.append(cardMain);

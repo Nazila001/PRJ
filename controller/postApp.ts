@@ -26,9 +26,8 @@ export class PostApp {
     }
 
 
-    clearCompleted(){
-        const post = (document.getElementById('postId') as any).id; 
-        this.postService.clearCompleted(post.id);
+    clearCompleted(postId){
+        this.postService.clearCompleted(postId);  
         this.renderPosts();
     }
 
@@ -86,7 +85,9 @@ export class PostApp {
             
             const btn = document.createElement('button'); //<button onclick="deletePost()" class="btn py-0 px-1 btn-danger"
             btn.className = 'btn py-0 px-1 btn-danger';
-            // btn.onclick
+            btn.addEventListener("click",()=>{   //<button onclick="deletePost()" class="btn py-0 px-1 btn-danger" data-bs-target="#" >حذف</button>
+                this.clearCompleted(post.id)
+            }) 
             btn.innerHTML = "حذف";
             messageTag.appendChild(btn);
 

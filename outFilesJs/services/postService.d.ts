@@ -2,7 +2,7 @@ import { Post } from '../model/post-model';
 import { IpostAction } from "services/IpostService";
 export declare class PostS implements IpostAction {
     private lastId;
-    private posts;
+    posts: Post[];
     constructor(lastId?: number, posts?: Post[]);
     private find;
     addFT(input: any): Post[];

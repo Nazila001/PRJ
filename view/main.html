@@ -14,7 +14,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.22/system.js"></script>
   </head>
 
-<body>
+<body>  
 
     <header class="p-3 bg-dark text-white mb-5">
         <div class="container">
@@ -58,51 +58,12 @@
         </div>
     </main>
 
-
-
-    <!-- <main class="container">
-        <div class="col">
-            <div id="main" class="card shadow-sm">
-                <div class="card-body" id="tocken">
-                    <p class="card-text">
-                        <div class="col-4 pt-1 color">
-                            <div id="allPosts">
-                                <p id="showPostFirsttime"></p>
-                            </div>
-                            <div>
-                                <label  class="form-lable mb-3 mt-3"></label>
-                                <input type="text" class="form-coltrol mb-4" id="innerPost"  placeholder="پیام خود را وارد کنید">
-                                <button id="enterPost" type="button" class="btn btn-success">ارسال</button>
-                            </div>
-                        </div>
-                    </p>
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <p id="showEnterPost"></p>
-                        <div class="btn-group"> 
-                            <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-                            <label class="btn btn-outline-danger" for="danger-outlined">👎</label>
-
-                            <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
-                            <label class="btn btn-outline-success" for="success-outlined">👍</label>
-                        </div>
-                        <button onclick="deletePost()" class="btn py-0 px-1 btn-danger" data-bs-target="#" >حذف</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main> -->
-
-
-
     <script>
         System.defaultJSExtensions = true;
         System.import('/outFilesJs/controller/postApp').then(function(modules){
            new modules.PostApp()
         });
     </script>
-
-
     <script>
         let userData = localStorage.getItem("redirect");
     </script>
@@ -112,28 +73,3 @@
 
     
 
-
-            <!-- <div class="modal fade" id="personModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header row g-0">
-                            <h5 class="modal-title col-11" id="personLable">کاربر</h5>
-                            <button type="button" class="btn-close col-1" data-bs-dismis="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="row">
-                                    <div class="mb-1 col-6">
-                                        <label for="username" class="form-lable">نام:</label>
-                                        <input type="text" class="form-coltrol" id="username" placeholder="نام کاربری خود را وارد کنید:">
-                                    </div>
-                                    <div class="mb-1 col-6">
-                                        <label for="name" class="form-lable">پست:</label>
-                                        <input type="text" class="form-coltrol" id="name" placeholder="متن مورد نظر خود را وارد کنید:">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>  
-                </div>
-            </div> -->

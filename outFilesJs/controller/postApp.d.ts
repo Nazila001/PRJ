@@ -3,6 +3,6 @@ export declare class PostApp {
     listPosts: any[];
     constructor();
     addFT(): void;
-    clearCompleted(): void;
+    clearCompleted(postId: any): void;
     renderPosts(): void;
 }
