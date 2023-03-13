@@ -7,8 +7,8 @@ export class Post {
 }
 
 export enum PostState {
-    Active = 0,
-    Complete = 1
+    Like = 1 ,
+    Dislike = 0
 }
 
 export class Person {

@@ -1,4 +1,4 @@
-import { Post } from "../model/post-model";
+import { Post, PostState } from '../model/post-model';
 
 export interface IpostAction  {
     
@@ -6,5 +6,5 @@ export interface IpostAction  {
     getAll():Post[];
     clearCompleted(postId : number): void;
     getById(postId : number) : Post //geting id and returning a post id
-
+    likePost(postState : number, postId : number) : void;
 }

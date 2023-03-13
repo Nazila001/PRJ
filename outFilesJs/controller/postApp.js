@@ -27,6 +27,10 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                     this.postService.clearCompleted(postId);
                     this.renderPosts();
                 }
+                likePost(PostState, postId) {
+                    this.postService.likePost(PostState, postId);
+                    this.renderPosts();
+                }
                 renderPosts() {
                     const postElement = document.getElementById('main-items');
                     const posts = this.postService.getAll();
@@ -56,18 +60,25 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                         const cardBody2 = document.createElement('div'); // <div class='small-font text-center top-20'>
                         cardBody2.className = 'small-font text-center top-20';
                         messageTag.appendChild(cardBody2);
-                        // const icon = document.createElement('button'); // <ion-icon name="heart">
-                        // messageTag.appendChild(icon);
                         const cardText1 = document.createElement('div'); //<div class='red-bg'>
                         cardText1.className = 'card-body';
                         messageTag.appendChild(cardText1);
-                        const btn = document.createElement('button'); //<button onclick="deletePost()" class="btn py-0 px-1 btn-danger"
-                        btn.className = 'btn py-0 px-1 btn-danger';
+                        const btn = document.createElement('button'); //<button onclick="deletePost()" class="btn py-0 px-1 btn-danger" data-bs-target="#" >حذف</button>
+                        btn.className = 'btn py-0 px-1 btn-secondary';
                         btn.addEventListener("click", () => {
                             this.clearCompleted(post.id);
                         });
                         btn.innerHTML = "حذف";
                         messageTag.appendChild(btn);
+                        const icon = document.createElement('button'); // <button type="button" onClick="onClick()">like</button>
+                        icon.className = post.state ? 'btn py-0 px-1 btn-danger' : 'btn py-0 px-1 btn-black';
+                        icon.innerHTML = "لایک";
+                        icon.addEventListener("click", () => {
+                            const newState = post.state ? 0 : 1;
+                            icon.className = newState ? 'btn py-0 px-1 btn-danger' : 'btn py-0 px-1 btn-black';
+                            this.likePost(newState, post.id);
+                        });
+                        messageTag.appendChild(icon);
                         postitems.append(cardMain);
                         cardMain.append(messageTag);
                     });

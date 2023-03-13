@@ -9,8 +9,8 @@ System.register([], function (exports_1, context_1) {
             };
             exports_1("Post", Post);
             (function (PostState) {
-                PostState[PostState["Active"] = 0] = "Active";
-                PostState[PostState["Complete"] = 1] = "Complete";
+                PostState[PostState["Like"] = 1] = "Like";
+                PostState[PostState["Dislike"] = 0] = "Dislike";
             })(PostState || (PostState = {}));
             exports_1("PostState", PostState);
             Person = class Person {

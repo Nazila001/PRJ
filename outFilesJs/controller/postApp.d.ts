@@ -4,5 +4,6 @@ export declare class PostApp {
     constructor();
     addFT(): void;
     clearCompleted(postId: any): void;
+    likePost(PostState: number, postId: number): void;
     renderPosts(): void;
 }

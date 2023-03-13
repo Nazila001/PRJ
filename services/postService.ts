@@ -17,9 +17,8 @@ export class PostS implements IpostAction {
 
     constructor (private lastId = 0,
         public posts : Post[] = [],){}
+
         
-
-
     private find(post:number):Post {
 
         var filtered = this.posts.filter(x => x.id == post);
@@ -37,7 +36,7 @@ export class PostS implements IpostAction {
             id : generatePostId(),
             autherName : localStorage.getItem("redirect"),
             message : input,
-            state: PostState.Active,
+            state: PostState.Dislike,
         };
 
         this.posts.push(post);
@@ -50,7 +49,6 @@ export class PostS implements IpostAction {
     clearCompleted(postId : number): void {
         const index = this.posts.findIndex(value=>value.id == postId);
         if(index>=0) {
-            // this.posts = this.posts.splice(index,1);
             let postDeleted = this.posts.splice(index,1);
             this.posts = this.posts.filter(value => value.id != index);
             localStorage.setItem('posts',JSON.stringify(this.posts));
@@ -68,5 +66,12 @@ export class PostS implements IpostAction {
     getById(postId: number): Post {
         var post = this.find(postId);
         return clone(post);
+    }
+
+
+    likePost(postState: number, postId : number ): void {
+        const index = this.posts.findIndex(value=>value.id == postId);
+        this.posts[index].state= postState;
+        localStorage.setItem('posts', JSON.stringify(this.posts));
     }
 }

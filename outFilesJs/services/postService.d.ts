@@ -9,4 +9,5 @@ export declare class PostS implements IpostAction {
     clearCompleted(postId: number): void;
     getAll(): Post[];
     getById(postId: number): Post;
+    likePost(postState: number, postId: number): void;
 }

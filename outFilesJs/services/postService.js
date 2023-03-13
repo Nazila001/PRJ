@@ -34,7 +34,7 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                         id: generatePostId(),
                         autherName: localStorage.getItem("redirect"),
                         message: input,
-                        state: post_model_1.PostState.Active,
+                        state: post_model_1.PostState.Dislike,
                     };
                     this.posts.push(post);
                     localStorage.setItem('posts', JSON.stringify(this.posts));
@@ -42,11 +42,9 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                 }
                 clearCompleted(postId) {
                     const index = this.posts.findIndex(value => value.id == postId);
-                    if (index >= 1) {
-                        // this.posts = this.posts.splice(index,1);
+                    if (index >= 0) {
                         let postDeleted = this.posts.splice(index, 1);
                         this.posts = this.posts.filter(value => value.id != index);
-                        // this.posts.length()
                         localStorage.setItem('posts', JSON.stringify(this.posts));
                     }
                 }
@@ -57,6 +55,11 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                 getById(postId) {
                     var post = this.find(postId);
                     return clone(post);
+                }
+                likePost(postState, postId) {
+                    const index = this.posts.findIndex(value => value.id == postId);
+                    this.posts[index].state = postState;
+                    localStorage.setItem('posts', JSON.stringify(this.posts));
                 }
             };
             exports_1("PostS", PostS);

@@ -6,8 +6,8 @@ export declare class Post {
     date?: string | number;
 }
 export declare enum PostState {
-    Active = 0,
-    Complete = 1
+    Like = 1,
+    Dislike = 0
 }
 export declare class Person {
     id?: number;
