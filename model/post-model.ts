@@ -2,7 +2,7 @@ export class Post {
     id? : number;
     autherName : string;
     message : string;
-    state : PostState;
+    state? : PostState;
     date? : string | number;
 }
 

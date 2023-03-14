@@ -3,7 +3,7 @@ import { IpostAction } from "services/IpostService";
 
 let lastId = 0;
 
-function generatePostId():number {
+export function generatePostId():number {
     return(lastId += 1);
 }
 
@@ -14,10 +14,12 @@ function clone<T> (src:T) :T {
 
 export class PostS implements IpostAction {
     
-
-    constructor (private lastId = 0,
-        public posts : Post[] = [],){}
-
+    constructor 
+        (private lastId = 0,
+        public posts : Post[] = [],
+        public comments : Post[] = [],)
+        {}
+    
         
     private find(post:number):Post {
 
@@ -74,4 +76,6 @@ export class PostS implements IpostAction {
         this.posts[index].state= postState;
         localStorage.setItem('posts', JSON.stringify(this.posts));
     }
+
+
 }

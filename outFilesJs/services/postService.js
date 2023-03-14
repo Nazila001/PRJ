@@ -5,6 +5,7 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
     function generatePostId() {
         return (lastId += 1);
     }
+    exports_1("generatePostId", generatePostId);
     function clone(src) {
         var clone = JSON.stringify(src);
         return JSON.parse(clone);
@@ -18,9 +19,10 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
         execute: function () {
             lastId = 0;
             PostS = class PostS {
-                constructor(lastId = 0, posts = []) {
+                constructor(lastId = 0, posts = [], comments = []) {
                     this.lastId = lastId;
                     this.posts = posts;
+                    this.comments = comments;
                 }
                 find(post) {
                     var filtered = this.posts.filter(x => x.id == post);
@@ -60,6 +62,9 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                     const index = this.posts.findIndex(value => value.id == postId);
                     this.posts[index].state = postState;
                     localStorage.setItem('posts', JSON.stringify(this.posts));
+                }
+                addComment(input, postId) {
+                    throw new Error('Method not implemented.');
                 }
             };
             exports_1("PostS", PostS);

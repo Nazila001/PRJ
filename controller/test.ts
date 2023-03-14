@@ -1,15 +1,17 @@
+import { Post } from "model/post-model";
+import { IpostAction } from "services/IpostService";
+// import PostListComponents from './postListComponents';
 import { PostS } from '../services/postService';
-import { Comments } from 'services/commentService';
+import { PostState } from "model/post-model";
+
 
 
 export class PostApp {
     private postService: PostS;
-    private commentService: Comment;
     public listPosts = [];  //a list to add posts of users
 
     constructor() {
         this.postService = new PostS()
-        this.commentService = new Comment()
         document.getElementById('addPost').addEventListener("click",()=>{
             this.addFT()
         });
@@ -34,11 +36,6 @@ export class PostApp {
         this.renderPosts();
     }
 
-    addComment(input,postId){
-        this.commentService.addComment(input,postId);
-        this.renderComment(postId);
-    }
-
     renderPosts(){
  
         const postElement = document.getElementById('main-items');
@@ -53,11 +50,9 @@ export class PostApp {
         
         posts.forEach(post=>{
 
-
             const cardMain = document.createElement('div'); //<div class="card shadow-sm">
             cardMain.className = 'card shadow-sm';
             
-             
             const cardBody = document.createElement('div');  //<div class="card-body" id="tocken">
             cardBody.className = 'card-body';
             cardMain.appendChild(cardBody);
@@ -80,7 +75,6 @@ export class PostApp {
             cardBody1.appendChild(messageTag);
 
             
-
             const cardBody2 = document.createElement('div');  // <div class='small-font text-center top-20'>
             cardBody2.className = 'small-font text-center top-20';
             messageTag.appendChild(cardBody2);
@@ -102,7 +96,7 @@ export class PostApp {
 
 
             const icon = document.createElement('button'); // <button type="button" onClick="onClick()">like</button>
-            icon.className = post.state  ? 'btn py-0 px-1 btn-danger':'btn py-0 px-1 btn-black';
+            icon.className = post.state ? 'btn py-0 px-1 btn-danger':'btn py-0 px-1 btn-black';
             icon.innerHTML = "لایک";
             icon.addEventListener("click", ()=>{
                 const newState = post.state ? 0 : 1;
@@ -115,96 +109,9 @@ export class PostApp {
             postitems.append(cardMain);
             cardMain.append(messageTag);
 
-            cardMain.append(this.inputComment(post.id));
         });
         
         postElement.append(postitems);
 
-        
-    }
-
-    inputComment(postId:number){
-
-
-        const commentElement = document.getElementById('main-items');
-        const comments= this.commentService;
-        const main = document.getElementById('items');
-        if(main) {
-            commentElement.removeChild(main);
-        }
-
-        const commentitems = document.createElement('div');
-        commentitems.setAttribute('id','items');
-        
-
-        const cardMain1 = document.createElement('div'); //<div class="card shadow-sm">
-        cardMain1.className = 'card shadow-sm';
-
-        
-        const cardBody = document.createElement('div');  //<div class="card-body" id="comment">    comment Box
-        cardBody.className = 'card-body';
-        cardMain1.appendChild(cardBody);
-
-        const comment = document.createElement("input");  // <input type="text" class="form-coltrol" id="commentInput" placeholder="کامنت">
-        comment.className = 'form-control';
-        cardMain1.appendChild(comment);
-
-
-        const comBtn = document.createElement('button'); //<button onclick="sendComment()" class="btn py-0 px-1 btn-danger" data-bs-target="#" >ارسال کامنت</button>
-        comBtn.className = 'btn py-0 px-1 btn-success';
-        comBtn.addEventListener("click",()=>{   
-            this.addComment((comment as any).value, postId)
-        }) 
-        comBtn.innerHTML = "ارسال";
-        cardMain1.appendChild(comBtn);
-        
-        return cardMain1
-
-    }
-
-    renderComment(postId:number) {
-
-        const postElement = document.getElementById('main-items');
-        const posts= this.postService.getAll();
-        const main = document.getElementById('items')
-        if(main) {
-            postElement.removeChild(main);
-        }
-
-        const postitems = document.createElement('div');
-        postitems.setAttribute('id','items');
-        
-        posts.forEach(comment=>{
-
-            const cardMain = document.createElement('div'); //<div class="card shadow-sm">
-            cardMain.className = 'card shadow-sm';
-            
-            const cardBody = document.createElement('div');  //<div class="card-body" id="tocken">
-            cardBody.className = 'card-body';
-            cardMain.appendChild(cardBody);
-
-
-            const cardText = document.createElement('p');  //<p class="card-text" id="p1">
-            cardText.className = 'card-text';
-            cardBody.appendChild(cardText);
-
-            const cardBody1 = document.createElement('div');  // <div id="allPosts">
-            cardBody1.className = 'card-body1';
-            cardBody1.innerText = localStorage.getItem('redirect');
-            cardMain.appendChild(cardBody1);
-
-
-            const commentAuth = document.createElement('p');  //sending auther name for comment
-            commentAuth.className = 'card-text1';
-            commentAuth.innerText = localStorage.getItem('redirect');
-            cardBody.appendChild(commentAuth);
-
-
-            const commentTag = document.createElement('p');  //<p id="showPostFirsttime">
-            commentTag.className = 'card-text1';
-            commentTag.innerText = comment.message; 
-            cardBody.appendChild(commentTag);
-        });
-        postElement.append(postitems);
     }
 }
