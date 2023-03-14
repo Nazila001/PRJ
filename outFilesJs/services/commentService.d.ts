@@ -1,7 +1,7 @@
-import { Post } from '../model/post-model';
-export declare class Comments {
+import { Icomment } from './IcomemtService';
+export declare class Comments implements Icomment {
     private lastId;
-    comments: Post[];
-    constructor(lastId?: number, comments?: Post[]);
-    addComment(input: any): Post[];
+    comments: Comment[];
+    constructor(lastId?: number, comments?: Comment[]);
+    addComment(input: any, postId: any): Comment[];
 }

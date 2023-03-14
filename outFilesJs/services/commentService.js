@@ -10,12 +10,12 @@ System.register([], function (exports_1, context_1) {
                     this.lastId = lastId;
                     this.comments = comments;
                 }
-                addComment(input) {
+                addComment(input, postId) {
                     let comment = {
                         autherName: localStorage.getItem("redirect"),
                         message: input,
                     };
-                    this.comments.push(comment);
+                    this.comments.push();
                     localStorage.setItem('comments', JSON.stringify(this.comments));
                     return this.comments;
                 }

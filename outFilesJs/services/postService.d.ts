@@ -12,5 +12,4 @@ export declare class PostS implements IpostAction {
     getAll(): Post[];
     getById(postId: number): Post;
     likePost(postState: number, postId: number): void;
-    addComment(input: any, postId: number): Post[];
 }

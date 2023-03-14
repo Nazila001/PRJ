@@ -13,7 +13,7 @@ export class Comments implements Icomment {
 
 
 
-addComment(input): Comment[] {
+addComment(input,postId): Comment[] {
 
     let  comment : Post = {
         autherName: localStorage.getItem("redirect"),

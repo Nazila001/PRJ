@@ -5,5 +5,4 @@ export interface IpostAction {
     clearCompleted(postId: number): void;
     getById(postId: number): Post;
     likePost(postState: number, postId: number): void;
-    addComment(input: any, postId: number): Post[];
 }

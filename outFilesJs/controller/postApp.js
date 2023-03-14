@@ -1,11 +1,14 @@
-System.register(["../services/postService"], function (exports_1, context_1) {
+System.register(["../services/postService", "services/commentService"], function (exports_1, context_1) {
     "use strict";
-    var postService_1, PostApp;
+    var postService_1, commentService_1, PostApp;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (postService_1_1) {
                 postService_1 = postService_1_1;
+            },
+            function (commentService_1_1) {
+                commentService_1 = commentService_1_1;
             }
         ],
         execute: function () {
@@ -13,7 +16,7 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                 constructor() {
                     this.listPosts = []; //a list to add posts of users
                     this.postService = new postService_1.PostS();
-                    this.commentService = new postService_1.PostS();
+                    this.commentService = new commentService_1.Comments();
                     document.getElementById('addPost').addEventListener("click", () => {
                         this.addFT();
                     });
@@ -92,7 +95,7 @@ System.register(["../services/postService"], function (exports_1, context_1) {
                 }
                 inputComment(postId) {
                     const commentElement = document.getElementById('main-items');
-                    const comments = this.commentService.getAll();
+                    const comments = this.commentService;
                     const main = document.getElementById('items');
                     if (main) {
                         commentElement.removeChild(main);

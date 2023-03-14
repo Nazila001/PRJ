@@ -4,12 +4,12 @@ import { Comments } from 'services/commentService';
 
 export class PostApp {
     private postService: PostS;
-    private commentService: Comment;
+    private commentService: Comments;
     public listPosts = [];  //a list to add posts of users
 
     constructor() {
         this.postService = new PostS()
-        this.commentService = new Comment()
+        this.commentService = new Comments()
         document.getElementById('addPost').addEventListener("click",()=>{
             this.addFT()
         });

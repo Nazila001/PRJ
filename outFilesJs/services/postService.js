@@ -63,9 +63,6 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                     this.posts[index].state = postState;
                     localStorage.setItem('posts', JSON.stringify(this.posts));
                 }
-                addComment(input, postId) {
-                    throw new Error('Method not implemented.');
-                }
             };
             exports_1("PostS", PostS);
         }
