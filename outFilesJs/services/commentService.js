@@ -2,6 +2,10 @@ System.register([], function (exports_1, context_1) {
     "use strict";
     var Comments;
     var __moduleName = context_1 && context_1.id;
+    function clone(src) {
+        var clone = JSON.stringify(src);
+        return JSON.parse(clone);
+    }
     return {
         setters: [],
         execute: function () {
@@ -18,6 +22,7 @@ System.register([], function (exports_1, context_1) {
                 }
                 addComment(input, postId) {
                     let comment = {
+                        id: postId,
                         autherName: localStorage.getItem("redirect"),
                         message: input,
                     };
@@ -28,6 +33,10 @@ System.register([], function (exports_1, context_1) {
                 getAll() {
                     this.comments = localStorage.getItem('comments') ? JSON.parse(localStorage.getItem('comments')) : [];
                     return this.comments;
+                }
+                getById(postId) {
+                    var post = this.find(postId);
+                    return clone(post);
                 }
             };
             exports_1("Comments", Comments);

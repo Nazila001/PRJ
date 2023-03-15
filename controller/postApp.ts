@@ -13,9 +13,6 @@ export class PostApp {
             this.addFT()
         });
         this.renderPosts()
-
-
-      
     }
 
 
@@ -113,7 +110,6 @@ export class PostApp {
             });
             messageTag.appendChild(icon);
 
-            
             postitems.append(cardMain);
             cardMain.append(messageTag);
             
@@ -130,9 +126,6 @@ export class PostApp {
         const cardMain1 = document.createElement('div'); //<div class="card shadow-sm">
         cardMain1.className = 'card shadow-sm';
 
-        // const cardBody = document.createElement('div');  //<div class="card-body" id="comment">    comment Box
-        // cardBody.className = 'card-body';
-        // cardMain1.appendChild(cardBody);
 
         const comment = document.createElement("input");  // <input type="text" class="form-coltrol" id="commentInput" placeholder="کامنت">
         comment.className = 'form-control';
@@ -155,30 +148,19 @@ export class PostApp {
 
         const commentElement = document.createElement("div"); 
         const comments = this.commentService.getAll()
-        // const main = document.getElementById('items');
+        const commentitems = document.createElement('div');
 
         // if(main) {
-        //     commentElement.removeChild(main);
+        //     postElement.removeChild(main);     //<div  id="main">
         // }
 
-        const commentitems = document.createElement('div');
         commentitems.setAttribute('id','items');
         
-
         comments.forEach(comment=>{
 
             const cardMain = document.createElement('div'); //<div class="card shadow-sm">
             cardMain.className = 'card shadow-sm';
-            
-            // const cardBody = document.createElement('div');  //<div class="card-body" id="tocken">
-            // cardBody.className = 'card-body';
-            // cardMain.appendChild(cardBody);
-
-
-            // const cardText = document.createElement('p');  //<p class="card-text" id="p1">
-            // cardText.className = 'card-text';
-            // cardMain.appendChild(cardText);
-
+   
 
             const commentAuth = document.createElement('p');  //sending auther name for comment
             commentAuth.className = 'card-text1';
@@ -190,10 +172,11 @@ export class PostApp {
             commentText.className = 'card-text1';
             commentText.innerText = comment.message; 
             cardMain.appendChild(commentText);
-            commentitems.append(cardMain)
+            commentitems.append(cardMain);
         });
 
         commentElement.append(commentitems);
+
         return commentElement
     }
 }

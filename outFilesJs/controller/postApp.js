@@ -96,9 +96,6 @@ System.register(["../services/postService", "../services/commentService"], funct
                 inputComment(postId) {
                     const cardMain1 = document.createElement('div'); //<div class="card shadow-sm">
                     cardMain1.className = 'card shadow-sm';
-                    // const cardBody = document.createElement('div');  //<div class="card-body" id="comment">    comment Box
-                    // cardBody.className = 'card-body';
-                    // cardMain1.appendChild(cardBody);
                     const comment = document.createElement("input"); // <input type="text" class="form-coltrol" id="commentInput" placeholder="کامنت">
                     comment.className = 'form-control';
                     cardMain1.appendChild(comment);
@@ -114,21 +111,14 @@ System.register(["../services/postService", "../services/commentService"], funct
                 renderComment(postId) {
                     const commentElement = document.createElement("div");
                     const comments = this.commentService.getAll();
-                    // const main = document.getElementById('items');
-                    // if(main) {
-                    //     commentElement.removeChild(main);
-                    // }
                     const commentitems = document.createElement('div');
+                    // if(main) {
+                    //     postElement.removeChild(main);     //<div  id="main">
+                    // }
                     commentitems.setAttribute('id', 'items');
                     comments.forEach(comment => {
                         const cardMain = document.createElement('div'); //<div class="card shadow-sm">
                         cardMain.className = 'card shadow-sm';
-                        // const cardBody = document.createElement('div');  //<div class="card-body" id="tocken">
-                        // cardBody.className = 'card-body';
-                        // cardMain.appendChild(cardBody);
-                        // const cardText = document.createElement('p');  //<p class="card-text" id="p1">
-                        // cardText.className = 'card-text';
-                        // cardMain.appendChild(cardText);
                         const commentAuth = document.createElement('p'); //sending auther name for comment
                         commentAuth.className = 'card-text1';
                         commentAuth.innerText = localStorage.getItem('redirect');

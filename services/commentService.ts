@@ -2,7 +2,10 @@ import { Comment } from 'model/comment-model';
 import { IcommentAction } from './IcommentService';
 
 
-
+function clone<T> (src:T) :T {
+    var clone = JSON.stringify(src);
+    return JSON.parse(clone);
+}
 
 export class Comments implements IcommentAction {
     
@@ -20,10 +23,10 @@ export class Comments implements IcommentAction {
         }
 
 
-
     addComment(input,postId : number): Comment[] {
 
         let  comment : Comment = {
+            id : postId,
             autherName: localStorage.getItem("redirect"),
             message: input,
         };
@@ -31,13 +34,17 @@ export class Comments implements IcommentAction {
         this.comments.push(comment);
         localStorage.setItem('comments',JSON.stringify(this.comments));
         return this.comments;
-
     }
 
 
     getAll(): Comment[] {
         this.comments = localStorage.getItem('comments') ? JSON.parse(localStorage.getItem('comments')) :[];
         return this.comments;
+    }
 
+
+    getById(postId: number): Comment {
+        var post = this.find(postId);
+        return clone(post);
     }
 }

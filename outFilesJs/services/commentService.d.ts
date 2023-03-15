@@ -6,4 +6,5 @@ export declare class Comments implements IcommentAction {
     private find;
     addComment(input: any, postId: number): Comment[];
     getAll(): Comment[];
+    getById(postId: number): Comment;
 }
