@@ -19,8 +19,7 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
         execute: function () {
             lastId = 0;
             PostS = class PostS {
-                constructor(lastId = 0, posts = [], comments = []) {
-                    this.lastId = lastId;
+                constructor(posts = [], comments = []) {
                     this.posts = posts;
                     this.comments = comments;
                 }

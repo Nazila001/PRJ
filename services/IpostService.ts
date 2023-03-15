@@ -1,5 +1,6 @@
 import { Post, PostState } from '../model/post-model';
 
+
 export interface IpostAction  {
     
     addFT(input): Post[];   //adding a new post

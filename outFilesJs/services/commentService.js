@@ -6,17 +6,27 @@ System.register([], function (exports_1, context_1) {
         setters: [],
         execute: function () {
             Comments = class Comments {
-                constructor(lastId = 0, comments = []) {
-                    this.lastId = lastId;
+                constructor(comments = []) {
                     this.comments = comments;
+                }
+                find(comment) {
+                    var filtered = this.comments.filter(x => x.id == comment);
+                    if (filtered.length) {
+                        return filtered[0];
+                    }
+                    return null;
                 }
                 addComment(input, postId) {
                     let comment = {
                         autherName: localStorage.getItem("redirect"),
                         message: input,
                     };
-                    this.comments.push();
+                    this.comments.push(comment);
                     localStorage.setItem('comments', JSON.stringify(this.comments));
+                    return this.comments;
+                }
+                getAll() {
+                    this.comments = localStorage.getItem('comments') ? JSON.parse(localStorage.getItem('comments')) : [];
                     return this.comments;
                 }
             };

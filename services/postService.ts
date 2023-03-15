@@ -15,9 +15,8 @@ function clone<T> (src:T) :T {
 export class PostS implements IpostAction {
     
     constructor 
-        (private lastId = 0,
-        public posts : Post[] = [],
-        public comments : Post[] = [],)
+        (public posts : Post[] = [],
+         public comments : Post[] = [],)
         {}
     
         

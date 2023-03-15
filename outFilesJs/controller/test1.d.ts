@@ -8,5 +8,5 @@ export declare class PostApp {
     addComment(input: any, postId: any): void;
     renderPosts(): void;
     inputComment(postId: number): HTMLDivElement;
-    renderComment(postId: number): HTMLDivElement;
+    renderComment(postId: number): void;
 }

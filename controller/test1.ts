@@ -13,9 +13,6 @@ export class PostApp {
             this.addFT()
         });
         this.renderPosts()
-
-
-      
     }
 
 
@@ -116,13 +113,13 @@ export class PostApp {
             
             postitems.append(cardMain);
             cardMain.append(messageTag);
-            
+
             cardMain.append(this.inputComment(post.id));
-            cardMain.append(this.renderComment(post.id));
         });
         
         postElement.append(postitems);
 
+        
     }
 
     inputComment(postId:number){
@@ -130,6 +127,7 @@ export class PostApp {
         const cardMain1 = document.createElement('div'); //<div class="card shadow-sm">
         cardMain1.className = 'card shadow-sm';
 
+        
         // const cardBody = document.createElement('div');  //<div class="card-body" id="comment">    comment Box
         // cardBody.className = 'card-body';
         // cardMain1.appendChild(cardBody);
@@ -153,9 +151,10 @@ export class PostApp {
 
     renderComment(postId:number) {
 
-        const commentElement = document.createElement("div"); 
-        const comments = this.commentService.getAll()
+        const commentElement = document.createElement("input"); 
+        const comments = this.postService.getAll();
         // const main = document.getElementById('items');
+        const main = document.createElement('button');
 
         // if(main) {
         //     commentElement.removeChild(main);
@@ -164,36 +163,37 @@ export class PostApp {
         const commentitems = document.createElement('div');
         commentitems.setAttribute('id','items');
         
-
         comments.forEach(comment=>{
 
             const cardMain = document.createElement('div'); //<div class="card shadow-sm">
             cardMain.className = 'card shadow-sm';
             
-            // const cardBody = document.createElement('div');  //<div class="card-body" id="tocken">
-            // cardBody.className = 'card-body';
-            // cardMain.appendChild(cardBody);
+            const cardBody = document.createElement('div');  //<div class="card-body" id="tocken">
+            cardBody.className = 'card-body';
+            cardMain.appendChild(cardBody);
 
 
-            // const cardText = document.createElement('p');  //<p class="card-text" id="p1">
-            // cardText.className = 'card-text';
-            // cardMain.appendChild(cardText);
+            const cardText = document.createElement('p');  //<p class="card-text" id="p1">
+            cardText.className = 'card-text';
+            cardBody.appendChild(cardText);
+
+            const cardBody1 = document.createElement('div');  // <div id="allPosts">
+            cardBody1.className = 'card-body1';
+            cardBody1.innerText = localStorage.getItem('redirect');
+            cardMain.appendChild(cardBody1);
 
 
             const commentAuth = document.createElement('p');  //sending auther name for comment
             commentAuth.className = 'card-text1';
             commentAuth.innerText = localStorage.getItem('redirect');
-            cardMain.appendChild(commentAuth);
+            cardBody.appendChild(commentAuth);
 
 
             const commentText = document.createElement('p');  //<p id="showPostFirsttime">
             commentText.className = 'card-text1';
             commentText.innerText = comment.message; 
-            cardMain.appendChild(commentText);
-            commentitems.append(cardMain)
+            cardBody.appendChild(commentText);
         });
-
         commentElement.append(commentitems);
-        return commentElement
     }
 }
