@@ -7,6 +7,6 @@ export declare class PostApp {
     likePost(PostState: number, postId: number): void;
     addComment(input: any, postId: any): void;
     renderPosts(): void;
-    inputComment(postId: number): HTMLDivElement;
-    renderComment(postId: number): HTMLDivElement;
+    inputComment(postId: number, cardMain: any): HTMLDivElement;
+    renderComment(postId: number, cardMain: any): HTMLDivElement;
 }

@@ -35,7 +35,7 @@ export class PostApp {
 
     addComment(input,postId){
         this.commentService.addComment(input,postId);
-        this.renderComment(postId);
+        // this.renderComment(postId);
     }
 
     renderPosts(){
@@ -108,20 +108,22 @@ export class PostApp {
                 icon.className = newState ? 'btn py-0 px-1 btn-danger':'btn py-0 px-1 btn-black';
                 this.likePost(newState,post.id);
             });
-            messageTag.appendChild(icon);
 
-            postitems.append(cardMain);
+            messageTag.appendChild(icon);  //like button append to main folder
+
+            postitems.append(cardMain);     //post fram and comment fram show
+
             cardMain.append(messageTag);
             
-            cardMain.append(this.inputComment(post.id));
-            cardMain.append(this.renderComment(post.id));
+            cardMain.append(this.inputComment(post.id,cardMain));
+            cardMain.append(this.renderComment(post.id,cardMain));
         });
         
         postElement.append(postitems);
 
     }
 
-    inputComment(postId:number){
+    inputComment(postId:number,cardMain){
 
         const cardMain1 = document.createElement('div'); //<div class="card shadow-sm">
         cardMain1.className = 'card shadow-sm';
@@ -135,26 +137,31 @@ export class PostApp {
         const comBtn = document.createElement('button'); //<button onclick="sendComment()" class="btn py-0 px-1 btn-danger" data-bs-target="#" >ارسال کامنت</button>
         comBtn.className = 'btn py-0 px-1 btn-success';
         comBtn.addEventListener("click",()=>{   
-            this.addComment((comment as any).value, postId)
+            this.addComment((comment as any).value, postId);
+            // window.location.reload();
+            cardMain.append(this.renderComment(postId,cardMain))
         }) 
         comBtn.innerHTML = "ارسال";
         cardMain1.appendChild(comBtn);
         
+        
+
         return cardMain1
 
     }
 
-    renderComment(postId:number) {
+    renderComment(postId:number,cardMain) {
 
+        // const comments = this.commentService.getAll()
+        const main = document.getElementById(`items${postId}`)
+        if(main) {
+            cardMain.removeChild(main);     //<div  id="main">
+        }
+        
         const commentElement = document.createElement("div"); 
-        const comments = this.commentService.getAll()
-        const commentitems = document.createElement('div');
+        commentElement.setAttribute('id',`items${postId}`)
+        const comments = this.commentService.getComment(postId);
 
-        // if(main) {
-        //     postElement.removeChild(main);     //<div  id="main">
-        // }
-
-        commentitems.setAttribute('id','items');
         
         comments.forEach(comment=>{
 
@@ -171,11 +178,12 @@ export class PostApp {
             const commentText = document.createElement('p');  //<p id="showPostFirsttime">
             commentText.className = 'card-text1';
             commentText.innerText = comment.message; 
+
             cardMain.appendChild(commentText);
-            commentitems.append(cardMain);
+            commentElement.append(cardMain);
         });
 
-        commentElement.append(commentitems);
+        
 
         return commentElement
     }

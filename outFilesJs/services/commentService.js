@@ -13,8 +13,8 @@ System.register([], function (exports_1, context_1) {
                 constructor(comments = []) {
                     this.comments = comments;
                 }
-                find(comment) {
-                    var filtered = this.comments.filter(x => x.id == comment);
+                find(postId) {
+                    var filtered = this.comments.filter(c => c.id == postId);
                     if (filtered.length) {
                         return filtered[0];
                     }
@@ -30,16 +30,17 @@ System.register([], function (exports_1, context_1) {
                     localStorage.setItem('comments', JSON.stringify(this.comments));
                     return this.comments;
                 }
-                getAll() {
+                getComment(postId) {
                     this.comments = localStorage.getItem('comments') ? JSON.parse(localStorage.getItem('comments')) : [];
+                    return this.comments.filter(value => value.id == postId);
                     return this.comments;
-                }
-                getById(postId) {
-                    var post = this.find(postId);
-                    return clone(post);
                 }
             };
             exports_1("Comments", Comments);
+            // getAll(): Comment[] {
+            //     this.comments = localStorage.getItem('comments') ? JSON.parse(localStorage.getItem('comments')) :[];
+            //     return this.comments;
+            // }
         }
     };
 });

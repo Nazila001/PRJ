@@ -13,9 +13,9 @@ export class Comments implements IcommentAction {
         (public comments : Comment[] = [])
         {}
 
-        private find(comment:number):Comment {
+        private find(postId:number):Comment {
 
-            var filtered = this.comments.filter(x => x.id == comment);
+            var filtered = this.comments.filter(c => c.id == postId);
             if (filtered.length){
                 return filtered[0];
             }
@@ -37,14 +37,17 @@ export class Comments implements IcommentAction {
     }
 
 
-    getAll(): Comment[] {
+    getComment(postId:number): Comment[] {
         this.comments = localStorage.getItem('comments') ? JSON.parse(localStorage.getItem('comments')) :[];
+        return this.comments.filter(value => value.id == postId);
         return this.comments;
     }
-
-
-    getById(postId: number): Comment {
-        var post = this.find(postId);
-        return clone(post);
-    }
 }
+
+    // getAll(): Comment[] {
+    //     this.comments = localStorage.getItem('comments') ? JSON.parse(localStorage.getItem('comments')) :[];
+    //     return this.comments;
+    // }
+
+
+
