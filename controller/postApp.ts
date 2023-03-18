@@ -1,5 +1,6 @@
 import { PostS } from '../services/postService';
 import { Comments } from '../services/commentService';
+import { Post } from 'model/post-model';
 
 
 export class PostApp {
@@ -12,7 +13,8 @@ export class PostApp {
         document.getElementById('addPost').addEventListener("click",()=>{
             this.addFT()
         });
-        this.renderPosts()
+        this.renderPosts();
+    
     }
 
 
@@ -36,6 +38,10 @@ export class PostApp {
     addComment(input,postId){
         this.commentService.addComment(input,postId);
         // this.renderComment(postId);
+    }
+
+    sortPosts(Post:[]) {
+        this.postService.sortPosts(Post);
     }
 
     renderPosts(){
@@ -118,10 +124,13 @@ export class PostApp {
             cardMain.append(this.inputComment(post.id,cardMain));
             cardMain.append(this.renderComment(post.id,cardMain));
         });
+
+
         
         postElement.append(postitems);
 
     }
+    
 
     inputComment(postId:number,cardMain){
 
@@ -152,7 +161,6 @@ export class PostApp {
 
     renderComment(postId:number,cardMain) {
 
-        // const comments = this.commentService.getAll()
         const main = document.getElementById(`items${postId}`)
         if(main) {
             cardMain.removeChild(main);     //<div  id="main">

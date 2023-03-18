@@ -18,6 +18,7 @@ export class PostS implements IpostAction {
         (public posts : Post[] = [],
          public comments : Post[] = [],)
         {}
+
     
         
     private find(post:number):Post {
@@ -74,6 +75,16 @@ export class PostS implements IpostAction {
         const index = this.posts.findIndex(value=>value.id == postId);
         this.posts[index].state= postState;
         localStorage.setItem('posts', JSON.stringify(this.posts));
+    }
+
+    sortPosts(Post: []) {
+        this.posts = localStorage.getItem('posts') ? JSON.parse(localStorage.getItem('posts')) :[];
+        this.posts.sort((a, b) => a.id - b.id);
+
+        // this.posts.sort(function(a, b) {
+        //     return a.id.localeCompare(b.id)
+        // });
+    
     }
 
 

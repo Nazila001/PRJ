@@ -38,6 +38,9 @@ System.register(["../services/postService", "../services/commentService"], funct
                     this.commentService.addComment(input, postId);
                     // this.renderComment(postId);
                 }
+                sortPosts(Post) {
+                    this.postService.sortPosts(Post);
+                }
                 renderPosts() {
                     const postElement = document.getElementById('main-items'); //<div id="main-items" class="col">
                     const posts = this.postService.getAll();
@@ -111,7 +114,6 @@ System.register(["../services/postService", "../services/commentService"], funct
                     return cardMain1;
                 }
                 renderComment(postId, cardMain) {
-                    // const comments = this.commentService.getAll()
                     const main = document.getElementById(`items${postId}`);
                     if (main) {
                         cardMain.removeChild(main); //<div  id="main">

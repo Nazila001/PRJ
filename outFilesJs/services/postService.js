@@ -62,6 +62,13 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                     this.posts[index].state = postState;
                     localStorage.setItem('posts', JSON.stringify(this.posts));
                 }
+                sortPosts(Post) {
+                    this.posts = localStorage.getItem('posts') ? JSON.parse(localStorage.getItem('posts')) : [];
+                    this.posts.sort((a, b) => a.id - b.id);
+                    // this.posts.sort(function(a, b) {
+                    //     return a.id.localeCompare(b.id)
+                    // });
+                }
             };
             exports_1("PostS", PostS);
         }

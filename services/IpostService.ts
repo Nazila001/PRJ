@@ -8,4 +8,5 @@ export interface IpostAction  {
     clearCompleted(postId : number): void;
     getById(postId : number) : Post //geting id and returning to the post
     likePost(postState : number, postId : number) : void;
+    sortPosts(Post : []) ;
 }
