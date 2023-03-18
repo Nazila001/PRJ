@@ -59,7 +59,6 @@
     let text = document.querySelector("input");
     let h2 = document.querySelector("h2");
 
-
     document.querySelector("#redirect").addEventListener("click",function(){
       localStorage.setItem("redirect",text.value);
       h2.innerText = localStorage.getItem("redirect"); 

@@ -19,6 +19,13 @@ export class Login{
             }
         }
 
+        let elementMain = document.getElementById("mainPage");
+        if(elementMain){
+            elementMain.onclick = ()=>{
+                window.location.href = 'http://127.0.0.1:5500/view/main.html';
+        }
+        }
+
         let elementPosts = document.getElementById("redirectProfilePage");
         if(elementPosts){
             elementPosts.onclick = ()=>{
@@ -30,6 +37,13 @@ export class Login{
         if(elementProfile){
             elementProfile.onclick = ()=>{
                 window.location.href = 'http://127.0.0.1:5500/view/Profile.html';
+            }
+        }
+
+        let elementLogin = document.getElementById("loginPage");
+        if(elementLogin){
+            elementLogin.onclick = ()=>{
+                window.location.href = 'http://127.0.0.1:5500/view/login-page.html';
             }
         }
     }

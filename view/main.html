@@ -24,10 +24,10 @@
               <svg class="bi" width="1" height="12" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
             </a>
             <ul class="nav col-6 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
-                <li><a class="p-2 link-secondary" href="#"id="mainpage">پست‌های من</a></li>
+                <li><a class="p-2 link-secondary" href="#"id="mainPage">پست‌های من</a></li>
                 <li><a class="p-2 link-secondary" href="#" id="redirectProfilePage">پروفایل</a></li>
-                <li><a class="p-2 link-secondary" href="#" id="posts">پست‌ها</a></li>
-                <li><a class="p-2 link-secondary" href="#" id="exit">خروج</a></li>
+                <!-- <li><a class="p-2 link-secondary" href="#" id="redirectProfile">پست‌ها</a></li> -->
+                <li><a class="p-2 link-secondary" href="#" id="loginPage">خروج</a></li>
             </ul>
           </div>
         </div>
@@ -75,6 +75,28 @@
         }
     </script>
     </body>
+
+
+    <script type="text/javascript">
+        System.defaultJSExtensions = true;
+        System.import("/outFilesJs/redirects/redirect").then(function (module) {
+            new module.Login();
+        });
+  </script>
+  
+  <script>
+  
+      let text = document.querySelector("input");
+      let h2 = document.querySelector("h2");
+  
+      document.querySelector("#redirect").addEventListener("click",function(){
+        localStorage.setItem("redirect",text.value);
+        h2.innerText = localStorage.getItem("redirect"); 
+      });
+  
+  </script>
+
+
 </html>
 
 

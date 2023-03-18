@@ -8,44 +8,44 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title>پروفایل</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/modals/">
-    <link href="https://fonts.googleapis.com/css?family=Amiri:wght@200;400&amp;display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog-rtl/">
+    <link href="/bootstrap/bootstrap-5.3.0-alpha1/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-WJUUqfoMmnfkBLne5uxXj+na/c7sesSJ32gI7GfCk4zO4GthUKhSEGyvQ839BC51" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Amiri:wght@400;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/asets/style.css">
-    <link href="/bootstrap/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <meta name="theme-color" content="#7952b3">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.22/system.js"></script>
+
   </head>
 
 
  <body>
-    <header class="p-3 bg-dark text-white mb-5">
-        <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-              <svg class="bi" width="1" height="5" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-            </a>
-            <ul class="nav col-6 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
-                <li><a class="p-2 link-secondary" href="#"id="mainpage">پست‌های من</a></li>
-                <li><a class="p-2 link-secondary" href="#" id="redirectProfilePage">پروفایل</a></li>
-                <li><a class="p-2 link-secondary" href="#" id="posts">پست‌ها</a></li>
-                <li><a class="p-2 link-secondary" href="#" id="exit">خروج</a></li>
-            </ul>
-          </div>
-        </div>
-      </header>
+  <header class="p-3 bg-dark text-white mb-5">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi" width="1" height="12" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <ul class="nav col-6 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-1">
+            <li><a class="p-2 link-secondary" href="#"id="mainPage">پست‌های من</a></li>
+            <li><a class="p-2 link-secondary" href="#" id="redirectProfilePage">پروفایل</a></li>
+            <!-- <li><a class="p-2 link-secondary" href="#" id="redirectProfile">پست‌ها</a></li> -->
+            <li><a class="p-2 link-secondary" href="#" id="loginPage">خروج</a></li>
+        </ul>
+      </div>
     </div>
-    </header>
+</header>
 
     <main>
       <div class="album py-5 bg-light">
         <div class="container">
             <div class="col">
               <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="0%" height="200"  role="img" aria-label="Placeholder: صورة مصغرة" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="0%" height="10%" fill="#55595c"/><text x="20%" y="10%" fill="#eceeef" dy=".3em"> </text></svg>
+                <svg class="bd-placeholder-img card-img-top" width="0%" height="200"  role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="0%" height="10%" fill="#55595c"/><text x="20%" y="10%" fill="#eceeef" dy=".3em"> </text></svg>
                 <div class="card-body">
                   <p class="card-text"> </p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">بازگشت</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" id="mainPage">بازگشت</button>
                     </div>
                   </div>
                 </div>
@@ -56,6 +56,24 @@
     </main>
     
     <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        
+    
+    <script type="text/javascript">
+      System.defaultJSExtensions = true;
+      System.import("/outFilesJs/redirects/redirect").then(function (module) {
+          new module.Login();
+      });
+</script>
+
+<script>
+
+    let text = document.querySelector("input");
+    let h2 = document.querySelector("h2");
+
+    document.querySelector("#redirect").addEventListener("click",function(){
+      localStorage.setItem("redirect",text.value);
+      h2.innerText = localStorage.getItem("redirect"); 
+    });
+
+</script>
  </body>
 </html>
