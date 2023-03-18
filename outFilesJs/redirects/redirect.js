@@ -14,13 +14,12 @@ System.register(["../valid/infoValid"], function (exports_1, context_1) {
                     let element = document.getElementById("redirect");
                     if (element) {
                         element.onclick = () => {
-                            console.log('test');
                             let userValidation = new infoValid_1.UserAuthentication({
                                 username: 'a@b.com',
                                 password: '12345',
                             });
                             if (userValidation.validUserNE())
-                                window.open('http://127.0.0.1:5500/view/index.html');
+                                window.open('http://127.0.0.1:5500/view/main.html');
                             else
                                 return alert("error");
                         };
