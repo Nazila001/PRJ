@@ -40,14 +40,10 @@ export class Comments implements IcommentAction {
     getComment(postId:number): Comment[] {
         this.comments = localStorage.getItem('comments') ? JSON.parse(localStorage.getItem('comments')) :[];
         return this.comments.filter(value => value.id == postId);
-        return this.comments;
+        // return this.comments;
     }
 }
 
-    // getAll(): Comment[] {
-    //     this.comments = localStorage.getItem('comments') ? JSON.parse(localStorage.getItem('comments')) :[];
-    //     return this.comments;
-    // }
 
 
 

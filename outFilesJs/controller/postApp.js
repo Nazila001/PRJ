@@ -20,6 +20,10 @@ System.register(["../services/postService", "../services/commentService"], funct
                         this.addFT();
                     });
                     this.renderPosts();
+                    document.getElementById('sort').addEventListener("click", () => {
+                        this.sortPosts();
+                    });
+                    this.renderPosts();
                 }
                 addFT() {
                     const post = document.getElementById('postMessage').value;
@@ -38,8 +42,8 @@ System.register(["../services/postService", "../services/commentService"], funct
                     this.commentService.addComment(input, postId);
                     // this.renderComment(postId);
                 }
-                sortPosts(Post) {
-                    this.postService.sortPosts(Post);
+                sortPosts() {
+                    this.postService.sortPosts();
                 }
                 renderPosts() {
                     const postElement = document.getElementById('main-items'); //<div id="main-items" class="col">

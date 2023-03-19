@@ -15,6 +15,10 @@ export class PostApp {
         });
         this.renderPosts();
     
+        document.getElementById('sort').addEventListener("click",()=>{
+            this.sortPosts()
+        });
+        this.renderPosts();
     }
 
 
@@ -40,8 +44,8 @@ export class PostApp {
         // this.renderComment(postId);
     }
 
-    sortPosts(Post:[]) {
-        this.postService.sortPosts(Post);
+    sortPosts() {
+        this.postService.sortPosts();
     }
 
     renderPosts(){

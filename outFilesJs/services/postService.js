@@ -62,12 +62,14 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                     this.posts[index].state = postState;
                     localStorage.setItem('posts', JSON.stringify(this.posts));
                 }
-                sortPosts(Post) {
+                sortPosts() {
                     this.posts = localStorage.getItem('posts') ? JSON.parse(localStorage.getItem('posts')) : [];
-                    this.posts.sort((a, b) => a.id - b.id);
+                    this.posts.sort((f, s) => s.id - f.id);
+                    localStorage.setItem('posts', JSON.stringify(this.posts));
                     // this.posts.sort(function(a, b) {
-                    //     return a.id.localeCompare(b.id)
-                    // });
+                    //     (function (a, b) {
+                    //            return a.id - b.id;
+                    //     });
                 }
             };
             exports_1("PostS", PostS);

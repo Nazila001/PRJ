@@ -33,14 +33,10 @@ System.register([], function (exports_1, context_1) {
                 getComment(postId) {
                     this.comments = localStorage.getItem('comments') ? JSON.parse(localStorage.getItem('comments')) : [];
                     return this.comments.filter(value => value.id == postId);
-                    return this.comments;
+                    // return this.comments;
                 }
             };
             exports_1("Comments", Comments);
-            // getAll(): Comment[] {
-            //     this.comments = localStorage.getItem('comments') ? JSON.parse(localStorage.getItem('comments')) :[];
-            //     return this.comments;
-            // }
         }
     };
 });
