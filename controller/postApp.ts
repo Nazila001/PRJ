@@ -1,6 +1,5 @@
 import { PostS } from '../services/postService';
 import { Comments } from '../services/commentService';
-import { Post } from 'model/post-model';
 
 
 export class PostApp {
@@ -64,7 +63,7 @@ export class PostApp {
 
 
             const cardMain = document.createElement('div'); //<div class="card shadow-sm">
-            cardMain.className = 'card shadow-sm';
+            cardMain.className = 'card shadow-sm  mb-5 mt-5';
             
              
             const cardBody = document.createElement('div');  //<div class="card-body" id="tocken">
@@ -79,16 +78,15 @@ export class PostApp {
 
             const cardBody1 = document.createElement('div');  // <div id="allPosts">
             cardBody1.className = 'card-body1';
-            cardBody1.innerText = localStorage.getItem('redirect');
+            cardBody1.innerText = 'نویسنده:'+localStorage.getItem('redirect');
             cardText.appendChild(cardBody1);
 
 
             const messageTag = document.createElement('p');  //<p id="showPostFirsttime">
-            messageTag.className = 'card-text1';
-            messageTag.innerText = post.message; 
+            messageTag.className = 'card-text1 pr-2 ';
+            messageTag.innerText = 'پیام:' + post.message; 
             cardBody1.appendChild(messageTag);
 
-            
 
             const cardBody2 = document.createElement('div');  // <div class='small-font text-center top-20'>
             cardBody2.className = 'small-font text-center top-20';
@@ -97,7 +95,7 @@ export class PostApp {
 
 
             const cardText1 = document.createElement('div');  //<div class='red-bg'>
-            cardText1.className = 'card-body';
+            cardText1.className = 'card-body py-4 px-4 ';
             messageTag.appendChild(cardText1);
 
             
@@ -139,7 +137,7 @@ export class PostApp {
     inputComment(postId:number,cardMain){
 
         const cardMain1 = document.createElement('div'); //<div class="card shadow-sm">
-        cardMain1.className = 'card shadow-sm';
+        cardMain1.className = 'card shadow-sm' ;
 
 
         const comment = document.createElement("input");  // <input type="text" class="form-coltrol" id="commentInput" placeholder="کامنت">
@@ -183,13 +181,13 @@ export class PostApp {
 
             const commentAuth = document.createElement('p');  //sending auther name for comment
             commentAuth.className = 'card-text1';
-            commentAuth.innerText = localStorage.getItem('redirect');
+            commentAuth.innerText ='نویسنده:'+ localStorage.getItem('redirect');
             cardMain.appendChild(commentAuth);
 
 
             const commentText = document.createElement('p');  //<p id="showPostFirsttime">
             commentText.className = 'card-text1';
-            commentText.innerText = comment.message; 
+            commentText.innerText = ' کامنت: ' + comment.message; 
 
             cardMain.appendChild(commentText);
             commentElement.append(cardMain);
