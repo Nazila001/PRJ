@@ -17,8 +17,8 @@ export class PostApp {
     
         document.getElementById('sort').addEventListener("click",()=>{
             this.sortPosts()
+            this.renderPosts();
         });
-        this.renderPosts();
     }
 
 

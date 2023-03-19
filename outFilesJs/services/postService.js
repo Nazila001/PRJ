@@ -64,7 +64,7 @@ System.register(["../model/post-model"], function (exports_1, context_1) {
                 }
                 sortPosts() {
                     this.posts = localStorage.getItem('posts') ? JSON.parse(localStorage.getItem('posts')) : [];
-                    this.posts.sort((f, s) => s.id - f.id);
+                    this.posts.sort((f, s) => f.id - s.id);
                     localStorage.setItem('posts', JSON.stringify(this.posts));
                     // this.posts.sort(function(a, b) {
                     //     (function (a, b) {

@@ -22,8 +22,8 @@ System.register(["../services/postService", "../services/commentService"], funct
                     this.renderPosts();
                     document.getElementById('sort').addEventListener("click", () => {
                         this.sortPosts();
+                        this.renderPosts();
                     });
-                    this.renderPosts();
                 }
                 addFT() {
                     const post = document.getElementById('postMessage').value;
